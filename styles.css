@@ -1,0 +1,82 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'sofia_promedium';
+  font-family: 'sofia_prosemi_bold';
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: "sofia_prosemi_bold";
+  src: url("/fonts/sofiaprosemibold-webfont.woff2") format("woff2"),
+    url("/fonts/sofiaprosemibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sofia_proultralight";
+  src: url("/fonts/sofiaproultralight-webfont.woff2") format("woff2"),
+    url("/fonts/sofiaproultralight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sofia_proregular";
+  src: url("/fonts/sofiaproregular-webfont.woff2") format("woff2"),
+    url("/fonts/sofiaproregular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sofia_promedium";
+  src: url("/fonts/sofiapromedium-webfont.woff2") format("woff2"),
+    url("/fonts/sofiapromedium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sofia_prolight";
+  src: url("/fonts/sofiaprolight-webfont.woff2") format("woff2"),
+    url("/fonts/sofiaprolight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sofia_proextra_light";
+  src: url("/fonts/sofiaproextralight-webfont.woff2") format("woff2"),
+    url("/fonts/sofiaproextralight-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sofia_probold";
+  src: url("/fonts/sofiaprobold-webfont.woff2") format("woff2"),
+    url("/fonts/sofiaprobold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sofia_problack";
+  src: url("/fonts/sofiaproblack-webfont.woff2") format("woff2"),
+    url("/fonts/sofiaproblack-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
