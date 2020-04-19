@@ -23,16 +23,29 @@ const HomePage = () => {
           BEST BUDDY
         </div>
         <div className={style["sub-text"]}>
-          FOR <span>BLOGGING</span>
+          <div className={style["sub-text-for"]}>FOR</div>
+          <div>
+            <span>HOME &<br/></span>
+            <span>OFFICE</span>
+          </div>
         </div>
-        <div className={style["social"]}>
-          <div>instagram</div>
-          <div>youtube</div>
-          <div>facebook</div>
+        <div className={style["how"]}>
+          <img src="/how.svg" alt=""/>
+          <div className={style["how-text"]}>
+            <span className={style["how-text-red"]}>WATCH:</span><br/>
+            <span className={style["how-text-underlined"]}>HOW IT</span><br/>
+            <span className={style["how-text-underlined"]}>WORKS ></span><br/>
+          </div>
         </div>
       </div>
 
       <div className={style["middle"]}>
+        <div className={style["menu"]}>
+          <div className={style["menu-item"]}>Home</div>
+          <div className={style["menu-item"]}>Products</div>
+          <div className={style["menu-item"]}>Shop</div>
+          <div className={style["menu-item"]}>Company</div>
+        </div>
         <div className={style["circle-menu"]}>
           <div className={style["circle-menu-item"]}><Icon /></div>
           <div className={style["circle-menu-item"]}><Icon /></div>
@@ -49,14 +62,8 @@ const HomePage = () => {
       </div>
 
       <div className={style["right"]}>
-        <div className={style["menu"]}>
-          <div className={style["menu-item"]}>Home</div>
-          <div className={style["menu-item"]}>Products</div>
-          <div className={style["menu-item"]}>Shop</div>
-          <div className={style["menu-item"]}>Company</div>
-          <div className={cx(style["menu-item"], style["menu-item-cart"])}>
+        <div className={style["cart"]}>
             Cart (0)
-          </div>
         </div>
 
         <div className={style["shop-now"]}>
@@ -65,6 +72,12 @@ const HomePage = () => {
             Now >
           </div>
         </div>
+      </div>
+
+      <div className={style["social"]}>
+        <div>instagram</div>
+        <div>youtube</div>
+        <div>facebook</div>
       </div>
 
       <div className={style["orbits"]}>

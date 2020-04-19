@@ -58,7 +58,7 @@
     width: 1317px;
     height: 1317px;
     border-radius: 50%;
-    border: 1px solid #525252;
+    border: 1px solid #4B4B4B;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -72,8 +72,31 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #868686;
+    border: 1px solid #4B4B4B;
   }
+}
+
+.how {
+  display: flex;
+  margin-top: auto;
+  align-items: center;
+  img {
+    width: 93px;
+  }
+}
+
+.how-text {
+  line-height: 25px;
+  letter-spacing: -0.05em;
+  margin-left: 20px;
+}
+
+.how-text-red {
+  color:#F80302;
+}
+
+.how-text-underlined {
+  text-decoration: underline;
 }
 
 .left {
@@ -86,6 +109,7 @@
 
 .logo {
   margin-left: -10px;
+  margin-top: -7px;
 }
 
 .logo__img {
@@ -94,23 +118,24 @@
 
 .welcome-text {
   font-family: 'sofia_prosemi_bold';
-  font-size: 51px;
-  line-height: 51px;
-  letter-spacing: 0.01em;
+  font-size: 53px;
+  line-height: 51px;  
+  letter-spacing: -0.05em;
   margin-top: 82px;
   margin-bottom: 55px;
   white-space: nowrap;
   span {
-    color: #C50C1A;
+    color: #F80302;
   }
 }
 
 .sub-text {
-  font-size: 40px;
-  letter-spacing: 0.02em;
+  font-size: 42px;
+  letter-spacing: -0.025em;
   -webkit-text-fill-color: #000; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
+  display: flex;
   span {
     display: inline-block;
     position: relative;
@@ -119,19 +144,33 @@
       height: 2px;
       background-color: #fff;
       position: absolute;
-      bottom: -4px;
+      bottom: -2px;
       width: 100%;
       left: 0;
     }
   }
 }
 
+.sub-text-for {
+  margin-right: 18px;
+}
+
 .social {
   text-transform: uppercase;
+  font-size: 17px;
   margin-top: auto;
   display: flex;
-  width: 100%;
+  width: 340px;
   justify-content: space-between;
+  position: absolute;
+  transform: rotate(-90deg);
+  z-index: 1;
+  right: -144px;
+  top: 50%;
+  div {
+    opacity: .8;
+    color: #707070;
+  }
 }
 
 
@@ -144,9 +183,32 @@
   position: relative;
 }
 
+.menu {
+  position: absolute;
+  top: 0;
+  display: flex;
+}
+
+.menu-item {
+  text-align: right;
+  text-transform: uppercase;
+  font-family: 'sofia_prosemi_bold';
+  margin-right: 52px;
+  font-size: 17px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.cart {
+  align-self: flex-end;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
 .circle-menu {
   @include on-circle($item-count: 8, $circle-size: 578px, $item-size: 106px); 
-  border: solid 1px #868686;
+  border: solid 1px #4B4B4B;
 }
 
 .circle-menu-item {
@@ -169,19 +231,6 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-}
-
-.menu {
-  align-self: flex-end;
-}
-
-.menu-item {
-  text-align: right;
-  text-transform: uppercase;
-  font-family: 'sofia_prosemi_bold';
-  &.menu-item-cart {
-    margin-top: 26px;
-  }  
 }
 
 .shop-now {
