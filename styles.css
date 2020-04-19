@@ -4,8 +4,7 @@ body {
   margin: 0;
   background-color: #000;
   color: #fff;
-  font-family: 'sofia_promedium';
-  font-family: 'sofia_prosemi_bold';
+  font-family: 'sofia_proregular', sans-serif;
 }
 
 * {

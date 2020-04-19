@@ -1,4 +1,136 @@
 .HomePage {
-  color: #f00;
-  font-family: 'sofia_promedium';
+  padding: 35px 40px;
+  display: flex;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
+
+.orbits {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  .big {
+    position: absolute;
+    width: 1317px;
+    height: 1317px;
+    border-radius: 50%;
+    border: 1px solid #525252;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .medium {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #868686;
+  }
+}
+
+.left {
+  width: 314px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.logo {
+
+}
+
+.logo__img {
+
+}
+
+.welcome-text {
+  font-family: 'sofia_prosemi_bold';
+  font-size: 51px;
+  line-height: 51px;
+  letter-spacing: 0.01em;
+  margin-top: 82px;
+  margin-bottom: 55px;
+  white-space: nowrap;
+  span {
+    color: #C50C1A;
+  }
+}
+
+.sub-text {
+  font-size: 40px;
+  letter-spacing: 0.02em;
+  -webkit-text-fill-color: #000; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  span {
+    display: inline-block;
+    position: relative;
+    &:after {
+      content: '';
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      bottom: -4px;
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+.social {
+  text-transform: uppercase;
+  margin-top: auto;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+.middle {
+  flex-grow: 1;
+}
+
+.right {
+  width: 314px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu {
+  align-self: flex-end;
+}
+
+.menu-item {
+  text-align: right;
+  text-transform: uppercase;
+  font-family: 'sofia_prosemi_bold';
+  &.menu-item-cart {
+    margin-top: 26px;
+  }  
+}
+
+.shop-now {
+  width: 108px;
+  height: 108px;
+  text-transform: uppercase;
+  padding-left: 5px;
+  background-color: #C50C1A;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: auto;
+  font-family: 'sofia_prosemi_bold';
+  margin-right: -10px;
+  align-self: flex-end;
+}
+
+
