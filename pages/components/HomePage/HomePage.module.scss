@@ -1,3 +1,42 @@
+/// Mixin to place items on a circle
+/// @author Hugo Giraudel
+/// @author Ana Tudor
+/// @param {Integer} $item-count - Number of items on the circle
+/// @param {Length} $circle-size - Large circle size
+/// @param {Length} $item-size - Single item size
+@mixin on-circle($item-count, $circle-size, $item-size) {
+  position: relative;
+  width:  $circle-size;
+  height: $circle-size;
+  padding: 0;
+  border-radius: 50%; 
+  list-style: none;       
+  
+  > * {
+    display: block;
+    position: absolute;
+    top:  50%; 
+    left: 50%;
+    width:  $item-size;
+    height: $item-size;
+    margin: -($item-size / 2);
+  
+    $angle: (360 / $item-count);
+    $rot: 0;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: 
+          rotate($rot * 1deg) 
+          translate($circle-size / 2) 
+          rotate($rot * -1deg);
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
+}
+
 .HomePage {
   padding: 35px 40px;
   display: flex;
@@ -9,9 +48,11 @@
 
 .orbits {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
+  left: 1px;
+  top: 0px;
   .big {
     position: absolute;
     width: 1317px;
@@ -40,14 +81,15 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  flex-shrink: 0;
 }
 
 .logo {
-
+  margin-left: -10px;
 }
 
 .logo__img {
-
+  width: 167px;
 }
 
 .welcome-text {
@@ -95,10 +137,36 @@
 
 .middle {
   flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.circle-menu {
+  @include on-circle($item-count: 8, $circle-size: 578px, $item-size: 106px); 
+  border: solid 1px #868686;
+}
+
+.circle-menu-item {
+  width: 106px;
+  height: 106px;
+  background-color: #000;
+  border-radius: 50%;
+}
+
+.stick {
+  position: absolute;
+  padding-right: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .right {
   width: 314px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
 }
