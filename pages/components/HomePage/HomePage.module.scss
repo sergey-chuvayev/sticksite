@@ -55,8 +55,8 @@
   top: 0px;
   .big {
     position: absolute;
-    width: 1317px;
-    height: 1317px;
+    width: 1279px;
+    height: 1279px;
     border-radius: 50%;
     border: 1px solid #4B4B4B;
     top: 50%;
@@ -66,8 +66,8 @@
 
   .medium {
     position: absolute;
-    width: 900px;
-    height: 900px;
+    width: 897px;
+    height: 897px;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -167,9 +167,15 @@
   z-index: 1;
   right: -144px;
   top: 50%;
-  div {
-    opacity: .8;
-    color: #707070;
+}
+
+.social-item {
+  opacity: .5;
+  color: #fff;
+  transition: ease all 150ms;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
   }
 }
 
@@ -195,6 +201,23 @@
   font-family: 'sofia_prosemi_bold';
   margin-right: 52px;
   font-size: 17px;
+  position: relative;
+  cursor: pointer;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    bottom: -4px;
+    left: 0;
+    transition: all ease 150ms;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
   &:last-child {
     margin-right: 0;
   }
@@ -238,16 +261,34 @@
   height: 108px;
   text-transform: uppercase;
   padding-left: 5px;
-  background-color: #C50C1A;
-  border-radius: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 25px;
-  margin-top: auto;
   font-family: 'sofia_prosemi_bold';
-  margin-right: -10px;
-  align-self: flex-end;
+  position: absolute;
+  bottom: 84px;
+  right: 84px;
+  cursor: pointer;
+  &:after {
+    content: '';
+    background-color: #C50C1A;
+    width: 108px;
+    height: 108px;
+    position: absolute;
+    z-index: 2;
+    border-radius: 50%;
+    transition: ease all 150ms;
+  }
+  &:hover {
+    &:after {
+      width: 128px;
+      height: 128px;
+    }
+  }
+  div {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 

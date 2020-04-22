@@ -1,5 +1,5 @@
 import React from "react";
-import cx from "classnames";
+import Sprite from './Sprite';
 import style from "./HomePage.module.scss";
 
 const Icon = () => (
@@ -57,7 +57,7 @@ const HomePage = () => {
           <div className={style["circle-menu-item"]}><Icon /></div>
         </div>
         <div className={style["stick"]}>
-          <img src="/stick.png" alt=""/>
+          <Sprite />
         </div>
       </div>
 
@@ -69,15 +69,15 @@ const HomePage = () => {
         <div className={style["shop-now"]}>
           <div>
             Shop<br/>
-            Now >
+            Now <img src="/arrow-right.svg" />
           </div>
         </div>
       </div>
 
       <div className={style["social"]}>
-        <div>instagram</div>
-        <div>youtube</div>
-        <div>facebook</div>
+        <div className={style["social-item"]}>instagram</div>
+        <div className={style["social-item"]}>youtube</div>
+        <div className={style["social-item"]}>facebook</div>
       </div>
 
       <div className={style["orbits"]}>
