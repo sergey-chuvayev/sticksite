@@ -80,13 +80,13 @@
   display: flex;
   margin-top: auto;
   align-items: center;
-  img {
+  cursor: pointer;
+  .how-icon {
     width: 93px;
   }
 }
 
 .how-text {
-  line-height: 25px;
   letter-spacing: -0.05em;
   margin-left: 20px;
 }
@@ -288,6 +288,7 @@
   div {
     position: relative;
     z-index: 3;
+    margin-left: 5px;
   }
 }
 

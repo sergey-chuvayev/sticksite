@@ -7,10 +7,11 @@ const Sprite = () => {
       sprite='/sprite.png'
       width={460}
       height={312}
-      fps={30}
+      fps={40}
       direction="vertical"
       frameCount={88}
-      wrapAfter={30}
+      wrapAfter={9}
+      loop={false}
     />
  )
 }

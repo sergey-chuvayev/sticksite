@@ -30,11 +30,11 @@ const HomePage = () => {
           </div>
         </div>
         <div className={style["how"]}>
-          <img src="/how.svg" alt=""/>
+          <img src="/how.svg" className={style["how-icon"]} alt=""/>
           <div className={style["how-text"]}>
-            <span className={style["how-text-red"]}>WATCH:</span><br/>
-            <span className={style["how-text-underlined"]}>HOW IT</span><br/>
-            <span className={style["how-text-underlined"]}>WORKS ></span><br/>
+            <span className={style["how-text-red"]}>WATCH</span><br/>
+            <span>HOW IT WORKS</span><br/>
+            <span>Basic Tips <img src="/arrow-right.svg" /></span><br/>
           </div>
         </div>
       </div>
