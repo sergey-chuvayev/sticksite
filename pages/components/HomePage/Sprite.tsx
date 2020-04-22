@@ -12,11 +12,6 @@ const Sprite = () => {
       frameCount={88}
       wrapAfter={30}
     />
-    // <div style={{
-    //   backgroundImage: 'url(/sprite.png)',
-    //   width: 540,
-    //   height: 420,
-    // }}></div>
  )
 }
 
