@@ -1,16 +1,16 @@
 import React from 'react';
-import Spritesheet from 'react-responsive-spritesheet';
+import SpriteAnimator from 'react-sprite-animator';
 
 const Sprite = () => {
  return (
-    <Spritesheet
-      image={`/sprite.png`}
-      widthFrame={540}
-      heightFrame={420}
-      steps={90}
-      fps={12}
-      autoplay={true}
-      loop={true}
+    <SpriteAnimator
+      sprite='/sprite1.png'
+      width={540}
+      height={420}
+      fps={1}
+      direction="vertical"
+      frameCount={87}
+      wrapAfter={9}
     />
  )
 }
