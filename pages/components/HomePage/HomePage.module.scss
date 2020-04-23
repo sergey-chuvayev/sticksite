@@ -230,7 +230,7 @@
 }
 
 .circle-menu {
-  @include on-circle($item-count: 8, $circle-size: 578px, $item-size: 106px); 
+  @include on-circle($item-count: 8, $circle-size: 515px, $item-size: 94px); 
   border: solid 1px #4B4B4B;
 }
 
@@ -293,3 +293,7 @@
 }
 
 
+
+.Sprite {
+  transform: scale(.7);
+}
