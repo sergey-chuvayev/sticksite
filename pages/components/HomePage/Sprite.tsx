@@ -2,9 +2,9 @@ import React from "react";
 import SpriteAnimator from "react-sprite-animator";
 import style from "./HomePage.module.scss";
 
-const Sprite = ({ isStartPlayingAnimation }) => {
+const Sprite = ({ isStartPlayingSprite }) => {
   return (
-    <div className={style['Sprite']} style={{ opacity: isStartPlayingAnimation ? 1 : 0 }}>
+    <div className={style['Sprite']} style={{ opacity: isStartPlayingSprite ? 1 : 0 }}>
       <SpriteAnimator
         sprite="/sprite.png"
         width={460}
@@ -14,7 +14,7 @@ const Sprite = ({ isStartPlayingAnimation }) => {
         frameCount={88}
         wrapAfter={9}
         loop={false}
-        shouldAnimate={isStartPlayingAnimation}
+        shouldAnimate={isStartPlayingSprite}
       />
     </div>
   );

@@ -4,13 +4,13 @@ import Intro from "./components/Intro/Intro.tsx";
 
 export default function Home() {
   const [isVideoFinished, setIsVideoFinished] = useState(false);
-  const [isStartPlayingAnimation, setStartPlayingAnimation] = useState(false);
+  const [isStartPlayingSprite, setStartPlayingAnimation] = useState(false);
   console.log(isVideoFinished);
   return (
     <div className="container">
       <HomePage
         isAppeared={isVideoFinished}
-        isStartPlayingAnimation={isStartPlayingAnimation}
+        isStartPlayingSprite={isStartPlayingSprite}
       />
       <Intro
         onVideoEnded={() => {

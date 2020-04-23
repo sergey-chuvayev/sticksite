@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import cx from 'classnames';
 import Sprite from './Sprite';
 import style from "./HomePage.module.scss";
@@ -9,7 +9,12 @@ const Icon = () => (
   </svg>
 );
 
-const HomePage = ({ isAppeared, isStartPlayingAnimation }) => {
+const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  setTimeout(() => {
+    setIsVisible(true);
+  }, 500); // init after video started playing
+  if (!isVisible) return null;
   return (
     <div className={cx(style["HomePage"], { [style["is-appeared"]]: isAppeared })}>
       <div className={style["left"]}>
@@ -58,7 +63,7 @@ const HomePage = ({ isAppeared, isStartPlayingAnimation }) => {
           <div className={style["circle-menu-item"]}><Icon /></div>
         </div>
         <div className={style["stick"]}>
-          <Sprite isStartPlayingAnimation={isStartPlayingAnimation} />
+          <Sprite isStartPlayingSprite={isStartPlayingSprite} />
         </div>
       </div>
 
