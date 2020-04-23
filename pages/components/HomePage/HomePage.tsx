@@ -1,4 +1,5 @@
 import React from "react";
+import cx from 'classnames';
 import Sprite from './Sprite';
 import style from "./HomePage.module.scss";
 
@@ -8,9 +9,9 @@ const Icon = () => (
   </svg>
 );
 
-const HomePage = () => {
+const HomePage = ({ isAppeared, isStartPlayingAnimation }) => {
   return (
-    <div className={style["HomePage"]}>
+    <div className={cx(style["HomePage"], { [style["is-appeared"]]: isAppeared })}>
       <div className={style["left"]}>
         <div className={style["logo"]}>
           <img className={style["logo__img"]} src="/logomain.webp" alt="" />
@@ -57,7 +58,7 @@ const HomePage = () => {
           <div className={style["circle-menu-item"]}><Icon /></div>
         </div>
         <div className={style["stick"]}>
-          <Sprite />
+          <Sprite isStartPlayingAnimation={isStartPlayingAnimation} />
         </div>
       </div>
 

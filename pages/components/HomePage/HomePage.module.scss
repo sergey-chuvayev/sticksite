@@ -44,6 +44,11 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  opacity: 0;
+  transition: ease opacity 700ms;
+  &.is-appeared {
+    opacity: 1;
+  }
 }
 
 .orbits {
