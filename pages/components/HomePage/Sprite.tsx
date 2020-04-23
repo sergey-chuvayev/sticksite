@@ -9,7 +9,7 @@ const Sprite = () => {
         sprite="/sprite.png"
         width={460}
         height={312}
-        fps={40}
+        fps={30}
         direction="vertical"
         frameCount={88}
         wrapAfter={9}
