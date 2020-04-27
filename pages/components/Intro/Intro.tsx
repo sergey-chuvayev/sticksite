@@ -1,8 +1,15 @@
 import React, { useState, useRef } from "react";
+import { useMediaQuery } from 'react-responsive'
 import cx from "classnames";
 import style from "./Intro.module.scss";
 
 const Intro = ({ onVideoEnded, onVideoFullyFinished }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
+  if (isMobile) { // if mobile
+    onVideoEnded();
+    onVideoFullyFinished();
+    return null;
+  }
   const [isFade, setIsFade] = useState(false);
   const [videoDuration, setVideoDuration] = useState(0);
   const video = useRef(null);

@@ -1,9 +1,13 @@
+@import '../../../styles/mixins.scss';
+
 /// Mixin to place items on a circle
 /// @author Hugo Giraudel
 /// @author Ana Tudor
 /// @param {Integer} $item-count - Number of items on the circle
 /// @param {Length} $circle-size - Large circle size
 /// @param {Length} $item-size - Single item size
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 @mixin on-circle($item-count, $circle-size, $item-size) {
   position: relative;
   width:  $circle-size;
@@ -46,15 +50,60 @@
   overflow: hidden;
   opacity: 0;
   transition: ease opacity 700ms;
+  @include phone {
+    flex-direction: column;
+    padding: 18px;
+    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
+  }
   &.is-appeared {
     opacity: 1;
   }
 }
 
+.mobile-header {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  @include phone {
+    display: flex;
+  }
+}
+
+.mobile-menu {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 18px 8px;
+  width: 100%;
+  overflow: auto;
+  @include phone {
+    display: flex;
+  }
+  .mobile-menu-item {
+    width: 85px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .mobile-menu-item-img {
+    background-color: #000;
+  }
+  .mobile-menu-item-text {
+    font-family: 'sofia_proregular';
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+
 .orbits {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: -1;
   left: 1px;
   top: 0px;
@@ -67,6 +116,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @include phone {
+      width: 442px;
+      height: 442px;
+      top: 55%;
+    }
   }
 
   .medium {
@@ -78,6 +132,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border: 1px solid #4B4B4B;
+    @include phone {
+      top: 55%;
+      width: 264px;
+      height: 264px;
+    }
   }
 }
 
@@ -88,6 +147,9 @@
   cursor: pointer;
   .how-icon {
     width: 93px;
+  }
+  @include phone {
+    display: none;
   }
 }
 
@@ -110,11 +172,18 @@
   flex-direction: column;
   height: 100%;
   flex-shrink: 0;
+  @include phone {
+    width: 100%;
+    height: initial;
+  }
 }
 
 .logo {
   margin-left: -10px;
   margin-top: -7px;
+  @include phone {
+    display: none;
+  }
 }
 
 .logo__img {
@@ -132,6 +201,12 @@
   span {
     color: #F80302;
   }
+  @include phone {
+    font-size: 24px;
+    line-height: 26px;
+    margin-top: 30px;
+    margin-bottom: 22px;
+  }
 }
 
 .sub-text {
@@ -142,6 +217,14 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   display: flex;
+  @include phone {
+    font-size: 20px;
+    line-height: 22px;
+    font-family: 'sofia_proregular';
+    -webkit-text-fill-color: #fff; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 0;
+    -webkit-text-stroke-color: none;
+  }
   span {
     display: inline-block;
     position: relative;
@@ -173,6 +256,9 @@
   z-index: 1;
   right: -144px;
   top: 50%;
+  @include phone {
+    display: none;
+  }
 }
 
 .social-item {
@@ -193,12 +279,21 @@
   align-items: center;
   width: 100%;
   position: relative;
+  @include phone {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .menu {
   position: absolute;
   top: 0;
   display: flex;
+  @include phone {
+    display: none;
+  }
 }
 
 .menu-item {
@@ -233,11 +328,17 @@
   align-self: flex-end;
   text-transform: uppercase;
   font-size: 17px;
+  @include phone {
+    display: none;
+  }
 }
 
 .circle-menu {
   @include on-circle($item-count: 8, $circle-size: 515px, $item-size: 94px); 
   border: solid 1px #4B4B4B;
+  @include phone {
+    display: none;
+  }
 }
 
 .circle-menu-item {
@@ -253,6 +354,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @include phone {
+    padding-right: 0;
+  }
 }
 
 .right {
@@ -260,6 +364,12 @@
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  @include phone {
+    width: initial;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+  }
 }
 
 .shop-now {
@@ -296,10 +406,32 @@
     z-index: 3;
     margin-left: 5px;
   }
+  @include phone {
+    &:after {
+      width: 70px;
+      height: 70px;  
+    }
+    &:hover {
+      &:after {
+        width: 70px;
+        height: 70px;  
+      }
+    }
+    font-size: 12px;
+    line-height: 14px;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
 }
 
 
 
 .Sprite {
   transform: scale(.7);
+  @include phone {
+    transform: scale(.42);
+  }
 }
