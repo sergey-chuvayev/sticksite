@@ -5,7 +5,8 @@ import style from "./Intro.module.scss";
 
 const Intro = ({ onVideoEnded, onVideoFullyFinished }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
-  if (isMobile) { // if mobile
+  const isTablet = useMediaQuery({ query: '(max-width: 769px)' });
+  if (isMobile || isTablet) { // if mobile or tablet
     onVideoEnded();
     onVideoFullyFinished();
     return null;

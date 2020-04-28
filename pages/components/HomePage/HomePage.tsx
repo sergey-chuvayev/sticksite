@@ -22,6 +22,11 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
   if (!isVisible) return null;
    
   if (isMobile) { // if mobile
+    window.addEventListener('resize', () => {
+      // We execute the same script as before
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
@@ -31,13 +36,13 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
       className={cx(style["HomePage"], { [style["is-appeared"]]: isAppeared })}
     >
       <div className={style["mobile-header"]}>
-        <div>
+        <div className={style["mobile-header-burger"]}>
           <img src="/mobile/burger.svg" alt="" />
         </div>
-        <div>
+        <div className={style["mobile-header-logo"]}>
           <img src="/mobile/logo.svg" alt="" />
         </div>
-        <div>
+        <div className={style["mobile-header-bag"]}>
           <img src="/mobile/bag.svg" alt="" />
         </div>
       </div>
