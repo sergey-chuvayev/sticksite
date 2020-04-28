@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useMediaQuery } from 'react-responsive'
+import { useMediaQuery } from 'react-responsive';
 import cx from "classnames";
 import style from "./Intro.module.scss";
 
