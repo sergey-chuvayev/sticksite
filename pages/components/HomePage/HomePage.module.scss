@@ -7,7 +7,7 @@
 /// @param {Length} $circle-size - Large circle size
 /// @param {Length} $item-size - Single item size
 
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes spin { 100% { transform: rotate(360deg); } }
 @mixin on-circle($item-count, $circle-size, $item-size) {
   position: relative;
   width:  $circle-size;
@@ -444,6 +444,7 @@
 
 .circle-menu {
   @include on-circle($item-count: 8, $circle-size: 515px, $item-size: 94px); 
+  animation: spin 100s linear infinite;
   border: solid 1px #373737;
   @include phone {
     display: none;
@@ -451,6 +452,9 @@
 }
 
 .circle-menu-item {
+  img {
+    animation: spin 100s linear infinite reverse;
+  }
   width: 106px;
   height: 106px;
   background-color: #000;
