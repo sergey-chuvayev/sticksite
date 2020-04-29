@@ -443,9 +443,10 @@
 }
 
 .circle-menu {
-  @include on-circle($item-count: 8, $circle-size: 515px, $item-size: 94px); 
+  @include on-circle($item-count: 8, $circle-size: 515px, $item-size: 126px); 
   animation: spin 100s linear infinite;
   border: solid 1px #373737;
+  z-index: 1;
   @include phone {
     display: none;
   }
@@ -455,20 +456,53 @@
   img {
     animation: spin 100s linear infinite reverse;
   }
-  width: 106px;
-  height: 106px;
+  transition: all 200ms;
+  border: 1px solid #000;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #373737;
+  }
+  width: 126px;
+  height: 126px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    width: 106px;
+    height: 106px;
+  }
   background-color: #000;
   border-radius: 50%;
 }
 
 .stick {
   position: absolute;
-  padding-right: 15px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   @include phone {
     padding-right: 0;
+  }
+}
+
+.inner-image {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 800ms;
+
+  top: calc(50% - 170px);
+	left: calc(50% - 170px);
+  &.active {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -564,14 +598,5 @@
     position: relative;
     top: 0;
     left: 0;
-  }
-}
-
-
-
-.Sprite {
-  transform: scale(.7);
-  @include phone {
-    transform: scale(.42);
   }
 }

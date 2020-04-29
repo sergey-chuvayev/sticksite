@@ -1,0 +1,17 @@
+@import '../../../styles/mixins.scss';
+
+.Sprite {
+  transition: all 800ms;
+  transform: scale(.7);
+  opacity: 1;
+  @include phone {
+    transform: scale(.42);
+  }
+  &.smalldown {
+    transform: scale(0);
+    opacity: 0;
+    @include phone {
+      transform: scale(.42);
+    } 
+  }
+}

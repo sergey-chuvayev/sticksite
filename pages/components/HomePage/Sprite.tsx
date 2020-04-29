@@ -1,10 +1,14 @@
 import React from "react";
+import cx from 'classnames';
 import SpriteAnimator from "react-sprite-animator";
-import style from "./HomePage.module.scss";
+import style from "./Sprite.module.scss";
 
-const Sprite = ({ isStartPlayingSprite }) => {
+const Sprite = ({ isStartPlayingSprite, isSmaler }) => {
   return (
-    <div className={style['Sprite']} style={{ opacity: isStartPlayingSprite ? 1 : 0 }}>
+    <div
+      className={cx(style['Sprite'], { [style['smalldown']]: isSmaler })}
+      style={{ opacity: isStartPlayingSprite ? 1 : 0 }}
+    >
       <SpriteAnimator
         sprite="/sprite.png"
         width={460}

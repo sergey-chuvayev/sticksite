@@ -8,6 +8,7 @@ import style from "./HomePage.module.scss";
 const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
   const isMobile = useMediaQuery({ query: "(max-width: 599px)" });
   const [isVisible, setIsVisible] = useState(false);
+  const [isSpriteSmaler, setIsSpriteSmaler] = useState(false);
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
   setTimeout(() => {
     setIsVisible(true);
@@ -78,9 +79,9 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
             <div className={style["how-text"]}>
               <span className={style["how-text-red"]}>WATCH</span>
               <br />
-              <span className={style['underlined']}>HOW IT WORKS</span>
+              <span className={style["underlined"]}>HOW IT WORKS</span>
               <br />
-              <span className={style['underlined']}>
+              <span className={style["underlined"]}>
                 Basic Tips <img src="/arrow-right.svg" />
               </span>
               <br />
@@ -96,33 +97,40 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
             <div className={style["menu-item"]}>Company</div>
           </div>
           <div className={style["circle-menu"]}>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
-            <div className={style["circle-menu-item"]}>
-              <img src="/menu/plane.svg" />
-            </div>
+            {[
+              "Home",
+              "Auto",
+              "How it Works",
+              "Home",
+              "Auto",
+              "How it Works",
+              "Last one",
+              "Last one",
+            ].map((item, i) => {
+              return (
+                <div
+                  key={i}
+                  className={style["circle-menu-item"]}
+                  onMouseEnter={() => {
+                    setIsSpriteSmaler(true);
+                  }}
+                  onMouseLeave={() => {
+                    setIsSpriteSmaler(false);
+                  }}
+                >
+                  <img src="/menu/plane.svg" />
+                </div>
+              );
+            })}
           </div>
           <div className={style["stick"]}>
-            <Sprite isStartPlayingSprite={isStartPlayingSprite} />
+            <Sprite
+              isSmaler={isSpriteSmaler}
+              isStartPlayingSprite={isStartPlayingSprite}
+            />
+            <div className={cx(style['inner-image'], { [style['active']]: isSpriteSmaler })}>
+              <img src="https://www.infovac.fr/images/actu/Covid2020.jpg" alt=""/>
+            </div>
           </div>
         </div>
 
