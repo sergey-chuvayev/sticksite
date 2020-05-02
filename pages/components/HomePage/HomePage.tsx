@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import { useMediaQuery } from "react-responsive";
 import BurgerMenu from "./BurgerMenu";
 import Sprite from "./Sprite";
+import { menuItems } from "./menu-items";
 import style from "./HomePage.module.scss";
 
 const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
@@ -10,18 +11,14 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSpriteSmaler, setIsSpriteSmaler] = useState(false);
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [currentMenuItemId, setCurrentMenuItemId] = useState("");
   setTimeout(() => {
     setIsVisible(true);
   }, 500); // init after video started playing
   if (!isVisible) return null;
 
   if (isMobile) {
-    // // if mobile
-    // window.addEventListener("resize", () => {
-    //   // We execute the same script as before
-    //   let vh = window.innerHeight * 0.01;
-    //   document.documentElement.style.setProperty("--vh", `${vh}px`);
-    // });
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
@@ -32,6 +29,14 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
         opened={isBurgerOpened}
         close={() => {
           setIsBurgerOpened(false);
+        }}
+      />
+      <div
+        className={cx(style["wide-image"], { [style["opened"]]: isMenuClicked })}
+        style={{
+          backgroundImage: `url(${
+            menuItems.find((mi) => mi.id === currentMenuItemId)?.photo
+          })`,
         }}
       />
       <div
@@ -67,12 +72,14 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
             BEST BUDDY
           </div>
           <div className={style["sub-text"]}>
-            <div className={style["sub-text-for"]}>FOR</div>
-            <div>
-              <span>HOME & </span>
-              <br />
-              <span>OFFICE</span>
-            </div>
+            {currentMenuItemId && (
+              <>
+                <div className={style["sub-text-for"]}>FOR</div>
+                <div>
+                  {menuItems.find((mi) => mi.id === currentMenuItemId).subtext}
+                </div>
+              </>
+            )}
           </div>
           <div className={style["how"]}>
             <img src="/how.svg" className={style["how-icon"]} alt="" />
@@ -97,28 +104,25 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
             <div className={style["menu-item"]}>Company</div>
           </div>
           <div className={style["circle-menu"]}>
-            {[
-              "Home",
-              "Auto",
-              "How it Works",
-              "Home",
-              "Auto",
-              "How it Works",
-              "Last one",
-              "Last one",
-            ].map((item, i) => {
+            {menuItems.map((item, i) => {
               return (
                 <div
                   key={i}
                   className={style["circle-menu-item"]}
                   onMouseEnter={() => {
                     setIsSpriteSmaler(true);
+                    setCurrentMenuItemId(item.id);
                   }}
                   onMouseLeave={() => {
                     setIsSpriteSmaler(false);
                   }}
+                  onClick={() => {
+                    setIsMenuClicked(true);
+                    // maybe extract to handler
+                    // add change page after transition
+                  }}
                 >
-                  <img src="/menu/plane.svg" />
+                  <img src={item.icon} />
                 </div>
               );
             })}
@@ -128,9 +132,16 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               isSmaler={isSpriteSmaler}
               isStartPlayingSprite={isStartPlayingSprite}
             />
-            <div className={cx(style['inner-image'], { [style['active']]: isSpriteSmaler })}>
-              <img src="https://www.infovac.fr/images/actu/Covid2020.jpg" alt=""/>
-            </div>
+            <div
+              className={cx(style["inner-image"], {
+                [style["active"]]: isSpriteSmaler,
+              })}
+              style={{
+                backgroundImage: `url(${
+                  menuItems.find((mi) => mi.id === currentMenuItemId)?.photo
+                })`,
+              }}
+            ></div>
           </div>
         </div>
 
@@ -147,27 +158,23 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
         </div>
 
         <div className={style["mobile-menu"]}>
-          {[
-            "Home",
-            "Auto",
-            "How it Works",
-            "Home",
-            "Auto",
-            "How it Works",
-            "Last one",
-          ].map((item, i) => {
+          {menuItems.map((item, i) => {
             return (
               <div key={i} className={style["mobile-menu-item"]}>
                 <div className={style["mobile-menu-item-img"]}>
-                  <img src="/menu/plane.svg" />
+                  <img src={item.icon} />
                 </div>
-                <div className={style["mobile-menu-item-text"]}>{item}</div>
+                <div className={style["mobile-menu-item-text"]}>
+                  {item.subtext}
+                </div>
               </div>
             );
           })}
         </div>
 
         <div className={style["social"]}>
+          {" "}
+          {/* TODO: use links here */}
           <div className={style["social-item"]}>instagram</div>
           <div className={style["social-item"]}>youtube</div>
           <div className={style["social-item"]}>facebook</div>
