@@ -80,7 +80,12 @@
     font-size: 20px;
   }
   &.with-arrow {
-    margin-right: -33px;
+    @include tablet {
+      margin-right: -33px;
+    }
+    @include phone {
+      margin-right: -11px;
+    }
   }
   .arrow {
     transform: rotate(90deg) translate(-2px, -3px);

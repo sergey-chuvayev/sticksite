@@ -7,7 +7,7 @@ const WITH_INTRO = false;
 
 export default function Home() {
   const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 769px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1180px)' });
   const isDesktop = !(isMobile || isTablet);
   const [isVideoFinished, setIsVideoFinished] = useState(!isDesktop || !WITH_INTRO || false);
   const [isStartPlayingSprite, setStartPlayingAnimation] = useState(!isDesktop || !WITH_INTRO || false);

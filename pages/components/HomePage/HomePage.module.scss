@@ -70,6 +70,7 @@
 .mobile-header {
   display: none;
   @include tablet {
+    z-index: 4;
     display: flex;
     flex-direction: row-reverse;
     justify-content: end;
@@ -201,6 +202,7 @@
   margin-top: auto;
   align-items: center;
   cursor: pointer;
+  z-index: 4;
   .how-icon {
     width: 93px;
   }
@@ -209,6 +211,10 @@
   }
   @include tablet {
     margin-top: initial;
+  }
+  @include big-desktop {
+    padding-left: 50px;
+    margin-bottom: 20px;
   }
 }
 
@@ -252,11 +258,16 @@
   height: 100%;
   flex-shrink: 0;
   @include tablet {
-    width: 100%;
     height: 100%;
     flex-shrink: 1;
+    position: absolute;
+    bottom: 0;
+    left: 32px;
   }
   @include phone {
+    position: relative;
+    left: 0;
+    bottom: initial;
     width: 100%;
     height: initial;
   }
@@ -269,6 +280,7 @@
     position: absolute;
     top: 35px;
     width: 200px;
+    z-index: 2;
   }
   @include phone {
     display: none;
@@ -287,6 +299,7 @@
   margin-top: 82px;
   margin-bottom: 55px;
   white-space: nowrap;
+  z-index: 4;
   span {
     color: #DD0017;
   }
@@ -301,9 +314,15 @@
     margin-top: 30px;
     margin-bottom: 22px;
   }
+  @include big-desktop {
+    padding-left: 50px;
+  }
 }
 
 .sub-text {
+  @include big-desktop {
+    padding-left: 50px;
+  }
   font-size: 42px;
   letter-spacing: -0.025em;
   line-height: 52px;
@@ -313,6 +332,7 @@
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   display: flex;
+  z-index: 4;
   @include tablet {
     display: none;
   }
@@ -371,23 +391,20 @@
 }
 
 .social {
+  @include big-desktop {
+    margin-left: 50px;
+    margin-bottom: 63px;
+  }
   text-transform: uppercase;
-  font-size: 13px;
-  margin-top: auto;
+  font-size: 11px;
+  margin-top: 20px;
   display: flex;
-  width: 300px;
   justify-content: space-between;
-  position: absolute;
-  transform: rotate(-90deg);
   z-index: 1;
-  right: -124px;
-  top: 50%;
+  width: 220px;
   @include tablet {
-    transform: rotate(0);
-    right: 40px;
-    bottom: 35px;
-    top: initial;
-    width: 257px;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
   @include phone {
     display: none;
@@ -479,16 +496,26 @@
   }
 }
 
+.menu-sub-overlay {
+  padding-top: 20px;
+  position: absolute;
+  top: 0;
+  padding-top: 43px;
+  left: -30px;
+}
+
 .menu-sub {
   background-color: #000;
   border-radius: 4px;
-  position: absolute;
-  top: 50px;
-  left: -30px;
+  position: relative;
   border: 1px solid #ddd;
   min-width: 160px;
   padding: 16px 0;
   z-index: 5;
+  // &.open-animation {
+  //   transform: translate(0, 0);
+  //   opacity: 1;
+  // }
   &:after {
     content: "";
     width: 10px;
@@ -501,15 +528,9 @@
     background-color: #000;
     position: absolute;
   }
-}
-
-.menu-sub-overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 4;
+  @include tablet {
+    display: none;
+  }
 }
 
 .menu-sub-item {
@@ -702,6 +723,10 @@
     z-index: 3;
     margin-left: 5px;
   }
+  @include big-desktop {
+    right: 180px;
+    bottom: 140px;
+  }
   @include tablet {
     &:after {
       width: 131px;
@@ -742,3 +767,29 @@
   }
 }
 
+.mobile-slider {
+  position: absolute;
+  height: 340px;
+  width: 100%;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.mobile-slider-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 340px;
+  width: 100%;
+  color: #fff;
+  font-size: 4em;
+}
+
+.mobile-slider-item-pic {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+}

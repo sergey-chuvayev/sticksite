@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import cx from "classnames";
+import Carousel from 'react-elastic-carousel'
 import { useMediaQuery } from "react-responsive";
 import BurgerMenu from "./BurgerMenu";
 import Sprite from "./Sprite";
@@ -63,7 +64,9 @@ const menuItems = [
 ];
 
 const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
-  const isMobile = useMediaQuery({ query: "(max-width: 599px)" });
+  const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1180px)' });
+
   const [isVisible, setIsVisible] = useState(false);
   const [isSpriteSmaler, setIsSpriteSmaler] = useState(false);
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
@@ -78,7 +81,24 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
   if (isMobile) {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
+    window.addEventListener('resize', () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
   }
+
+  const settings = {
+    className: "center",
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 5,
+    swipeToSlide: true,
+    afterChange: function(index) {
+      console.log(
+        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
+      );
+    }
+  };
 
   return (
     <>
@@ -161,28 +181,34 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               <br />
             </div>
           </div>
+          <div className={style["social"]}>
+            {/* TODO: use links here */}
+            <div className={style["social-item"]}>instagram</div>
+            <div className={style["social-item"]}>youtube</div>
+            <div className={style["social-item"]}>facebook</div>
+          </div>
         </div>
 
         <div className={style["middle"]}>
           <div className={style["menu"]}>
             <div
               className={cx(style["menu-item"], style["with-arrow"])}
-              onClick={() => {
+              onMouseEnter={() => {
                 setIsSubMenuOpened(true);
+              }}
+              onMouseLeave={(e) => {
+                setIsSubMenuOpened(false);
               }}
             >
               <span>How to use</span>{" "}
               <img className={style["arrow"]} src="/arrow-right.svg" />
               {isSubMenuOpened && (
-                <>
+                <div className={style["menu-sub-overlay"]}>
                   <div
-                    className={style["menu-sub-overlay"]}
-                    onClick={(e) => {
-                      e.stopPropagation(); // for top level click
-                      setIsSubMenuOpened(false);
-                    }}
-                  />
-                  <div className={style["menu-sub"]}>
+                    className={cx(style["menu-sub"], {
+                      [style["open-animation"]]: isSubMenuOpened,
+                    })}
+                  >
                     <div className={style["menu-sub-item"]}>
                       <span>Auto</span>
                     </div>
@@ -208,7 +234,7 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
                       <span>No phone</span>
                     </div>
                   </div>
-                </>
+                </div>
               )}
             </div>
             <div className={style["menu-item"]}>Products</div>
@@ -239,27 +265,79 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               );
             })}
           </div>
-          <div className={style["stick"]}>
-            <Sprite
-              isSmaler={isSpriteSmaler}
-              isStartPlayingSprite={isStartPlayingSprite}
-            />
-            {menuItems.map((mi) => {
-              return (
-                <div
-                  className={cx(style["inner-image"], {
-                    [style["active"]]:
-                      isSpriteSmaler && currentMenuItemId === mi.id,
-                  })}
-                  id={mi.id}
-                  style={{
-                    backgroundImage: `url(${mi.photo})`,
-                  }}
-                ></div>
-              );
-            })}
-          </div>
+          {!isMobile && !isTablet && (
+            <div className={style["stick"]}>
+              <Sprite
+                isSmaler={isSpriteSmaler}
+                isStartPlayingSprite={isStartPlayingSprite}
+              />
+              {menuItems.map((mi) => {
+                return (
+                  <div
+                    className={cx(style["inner-image"], {
+                      [style["active"]]:
+                        isSpriteSmaler && currentMenuItemId === mi.id,
+                    })}
+                    id={mi.id}
+                    style={{
+                      backgroundImage: `url(${mi.photo})`,
+                    }}
+                  ></div>
+                );
+              })}
+            </div>
+          )}
         </div>
+
+        {isMobile && (
+          <div className={style["mobile-slider"]}>
+            <Carousel itemsToShow={1} showArrows={false} pagination={false}>
+              <div className={style["mobile-slider-item"]}>
+                <Sprite isStartPlayingSprite={true} isSmaler={false} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/auto.png)`,
+                }} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/home.png)`,
+                }} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/sport.png)`,
+                }} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/travel.png)`,
+                }} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/music.png)`,
+                }} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/blogging.png)`,
+                }} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/horeca.png)`,
+                }} />
+              </div>
+              <div className={style["mobile-slider-item"]}>
+                <div className={style["mobile-slider-item-pic"]} style={{
+                  backgroundImage: `url(/menu/phone.png)`,
+                }} />
+              </div>
+            </Carousel>
+          </div>
+        )}
 
         <div className={style["right"]}>
           <div className={style["cart"]}>Cart (0)</div>
@@ -286,14 +364,6 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               </div>
             );
           })}
-        </div>
-
-        <div className={style["social"]}>
-          {" "}
-          {/* TODO: use links here */}
-          <div className={style["social-item"]}>instagram</div>
-          <div className={style["social-item"]}>youtube</div>
-          <div className={style["social-item"]}>facebook</div>
         </div>
 
         <div className={style["orbits"]}>

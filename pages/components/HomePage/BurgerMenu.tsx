@@ -43,13 +43,13 @@ const BurgerMenu = ({ opened, close }) => {
       <div className={style["bottom"]}>
         <div className={style["socials"]}>
           <a className={style["socials-item"]}>
-            <img src="/mobile/facebook.svg" alt="" />
+            <img src="/mobile/youtube.svg" alt="" />
           </a>
           <a className={style["socials-item"]}>
             <img src="/mobile/instagram.svg" alt="" />
           </a>
           <a className={style["socials-item"]}>
-            <img src="/mobile/youtube.svg" alt="" />
+            <img src="/mobile/facebook.svg" alt="" />
           </a>
         </div>
       </div>
