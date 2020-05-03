@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { menuItems } from './components/HomePage/menu-items';
+import { menuItems } from './lib/menu-items';
 import '../styles/styles.css'
 
 function useWindowSize() {

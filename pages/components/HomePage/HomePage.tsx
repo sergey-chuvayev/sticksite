@@ -3,7 +3,7 @@ import cx from "classnames";
 import { useMediaQuery } from "react-responsive";
 import BurgerMenu from "./BurgerMenu";
 import Sprite from "./Sprite";
-import { menuItems } from "./menu-items";
+import { menuItems } from "../../lib/menu-items";
 import style from "./HomePage.module.scss";
 
 const HomePage = ({ isAppeared, isStartPlayingSprite }) => {

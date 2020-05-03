@@ -24,6 +24,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "pages/components/HomePage/menu-items.js"
+    "**/*.tsx", "pages/lib/menu-items.js"
   ]
 }
