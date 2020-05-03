@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { menuItems } from './lib/menu-items';
-import '../styles/styles.css'
+import '../styles/styles.css';
+
+const preloadedPhotos = [
+  '/menu/auto.png',
+  '/menu/home.png',
+  '/menu/sport.png',
+  '/menu/travel.png',
+  '/menu/music.png',
+  '/menu/blogging.png',
+  '/menu/horeca.png',
+  '/menu/phone.png',
+  '/sprite.png',
+]
 
 function useWindowSize() {
   const isClient = typeof window === 'object';
@@ -19,11 +30,11 @@ function useWindowSize() {
       return false;
     }
 
-    const img = new Image(); // preload sprite
-    img.src = '/sprite.png';
-    menuItems.forEach((item) => { // preload all images
-      const img = new Image();
-      img.src = item.photo;
+    preloadedPhotos.forEach((item) => { // preload all images
+      // const img = new Image();
+      const img = document.createElement('img');
+      img.src = item;
+      img.style = 'display: none';
     });
     
     function handleResize() {
