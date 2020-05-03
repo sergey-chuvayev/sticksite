@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 import HomePage from "./components/HomePage/HomePage.tsx";
 import Intro from "./components/Intro/Intro.tsx";
 
-const WITH_INTRO = true;
+const WITH_INTRO = false;
 
 export default function Home() {
   const isMobile = useMediaQuery({ query: '(max-width: 599px)' });

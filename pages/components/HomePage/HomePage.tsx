@@ -7,17 +7,15 @@ import style from "./HomePage.module.scss";
 
 const menuItems = [
   {
-    id: 'auto',
-    icon: '/menu/auto.svg',
-    photo: '/menu/auto.png',
-    subtext: (
-      <span>Auto</span>
-    ),
+    id: "auto",
+    icon: "/menu/auto.svg",
+    photo: "/menu/auto.png",
+    subtext: <span>Auto</span>,
   },
   {
-    id: 'home',
-    icon: '/menu/home.svg',
-    photo: '/menu/home.png',
+    id: "home",
+    icon: "/menu/home.svg",
+    photo: "/menu/home.png",
     subtext: (
       <>
         <span>HOME & </span>
@@ -27,52 +25,40 @@ const menuItems = [
     ),
   },
   {
-    id: 'sport',
-    icon: '/menu/sport.svg',
-    photo: '/menu/sport.png',
-    subtext: (
-      <span>Sport</span>
-    ),
+    id: "sport",
+    icon: "/menu/sport.svg",
+    photo: "/menu/sport.png",
+    subtext: <span>Sport</span>,
   },
   {
-    id: 'travel',
-    icon: '/menu/travel.svg',
-    photo: '/menu/travel.png',
-    subtext: (
-      <span>Travel</span>
-    ),
+    id: "travel",
+    icon: "/menu/travel.svg",
+    photo: "/menu/travel.png",
+    subtext: <span>Travel</span>,
   },
   {
-    id: 'music',
-    icon: '/menu/music.svg',
-    photo: '/menu/music.png',
-    subtext: (
-      <span>Music</span>
-    ),
+    id: "music",
+    icon: "/menu/music.svg",
+    photo: "/menu/music.png",
+    subtext: <span>Music</span>,
   },
   {
-    id: 'blogging',
-    icon: '/menu/blogging.svg',
-    photo: '/menu/blogging.png',
-    subtext: (
-      <span>Blogging</span>
-    ),
+    id: "blogging",
+    icon: "/menu/blogging.svg",
+    photo: "/menu/blogging.png",
+    subtext: <span>Blogging</span>,
   },
   {
-    id: 'horeca',
-    icon: '/menu/horeca.svg',
-    photo: '/menu/horeca.png',
-    subtext: (
-      <span>horeca</span>
-    ),
+    id: "horeca",
+    icon: "/menu/horeca.svg",
+    photo: "/menu/horeca.png",
+    subtext: <span>horeca</span>,
   },
   {
-    id: 'phone',
-    icon: '/menu/phone.svg',
-    photo: '/menu/phone.png',
-    subtext: (
-      <span>No phone</span>
-    ),
+    id: "phone",
+    icon: "/menu/phone.svg",
+    photo: "/menu/phone.png",
+    subtext: <span>No phone</span>,
   },
 ];
 
@@ -102,7 +88,9 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
         }}
       />
       <div
-        className={cx(style["wide-image"], { [style["opened"]]: isMenuClicked })}
+        className={cx(style["wide-image"], {
+          [style["opened"]]: isMenuClicked,
+        })}
         style={{
           backgroundImage: `url(${
             menuItems.find((mi) => mi.id === currentMenuItemId)?.photo
@@ -145,9 +133,15 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
             {currentMenuItemId && (
               <>
                 <div className={style["sub-text-for"]}>FOR</div>
-                <div>
-                  {menuItems.find((mi) => mi.id === currentMenuItemId).subtext}
-                </div>
+                {menuItems.map((mi) => (
+                  <div
+                    className={cx(style["sub-text-for-text"], {
+                      [style["active"]]: mi.id === currentMenuItemId,
+                    })}
+                  >
+                    <div>{mi.subtext}</div>
+                  </div>
+                ))}
               </>
             )}
           </div>
@@ -202,16 +196,20 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               isSmaler={isSpriteSmaler}
               isStartPlayingSprite={isStartPlayingSprite}
             />
-            <div
-              className={cx(style["inner-image"], {
-                [style["active"]]: isSpriteSmaler,
-              })}
-              style={{
-                backgroundImage: `url(${
-                  menuItems.find((mi) => mi.id === currentMenuItemId)?.photo
-                })`,
-              }}
-            ></div>
+            {menuItems.map((mi) => {
+              return (
+                <div
+                  className={cx(style["inner-image"], {
+                    [style["active"]]:
+                      isSpriteSmaler && currentMenuItemId === mi.id,
+                  })}
+                  id={mi.id}
+                  style={{
+                    backgroundImage: `url(${mi.photo})`,
+                  }}
+                ></div>
+              );
+            })}
           </div>
         </div>
 
