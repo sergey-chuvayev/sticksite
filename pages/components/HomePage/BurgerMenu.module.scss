@@ -79,6 +79,9 @@
   @include phone {
     font-size: 20px;
   }
+  &.with-arrow {
+    margin-right: -33px;
+  }
   .arrow {
     transform: rotate(90deg) translate(-2px, -3px);
     @include tablet {
@@ -166,6 +169,7 @@
 .menu-sub-item {
   margin-bottom: 18px;
   text-align: center;
+  text-transform: lowercase;
   @include tablet {
     font-size: 24px;
   }

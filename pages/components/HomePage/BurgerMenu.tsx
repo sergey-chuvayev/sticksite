@@ -14,12 +14,15 @@ const BurgerMenu = ({ opened, close }) => {
       </div>
       <div className={style["menu"]}>
         <div
-          className={cx(style["menu-item"], { [style["active"]]: isSubOpened })}
+          className={cx(style["menu-item"], style["with-arrow"], {
+            [style["active"]]: isSubOpened,
+          })}
           onClick={() => {
             setIsSubOpened(!isSubOpened);
           }}
         >
-          <span>How to use</span> <img className={style["arrow"]} src="/arrow-right.svg" />
+          <span>How to use</span>{" "}
+          <img className={style["arrow"]} src="/arrow-right.svg" />
         </div>
         {isSubOpened && (
           <div className={style["menu-sub"]}>

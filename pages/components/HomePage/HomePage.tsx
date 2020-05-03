@@ -68,6 +68,7 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
   const [isSpriteSmaler, setIsSpriteSmaler] = useState(false);
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [isSubMenuOpened, setIsSubMenuOpened] = useState(false);
   const [currentMenuItemId, setCurrentMenuItemId] = useState("");
   setTimeout(() => {
     setIsVisible(true);
@@ -87,16 +88,18 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           setIsBurgerOpened(false);
         }}
       />
-      <div
-        className={cx(style["wide-image"], {
-          [style["opened"]]: isMenuClicked,
-        })}
-        style={{
-          backgroundImage: `url(${
-            menuItems.find((mi) => mi.id === currentMenuItemId)?.photo
-          })`,
-        }}
-      />
+      {!isMobile && !isSubMenuOpened && (
+        <div
+          className={cx(style["wide-image"], {
+            [style["opened"]]: isMenuClicked,
+          })}
+          style={{
+            backgroundImage: `url(${
+              menuItems.find((mi) => mi.id === currentMenuItemId)?.photo
+            })`,
+          }}
+        />
+      )}
       <div
         className={cx(style["HomePage"], {
           [style["is-appeared"]]: isAppeared,
@@ -162,7 +165,52 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
 
         <div className={style["middle"]}>
           <div className={style["menu"]}>
-            <div className={style["menu-item"]}>Home</div>
+            <div
+              className={cx(style["menu-item"], style["with-arrow"])}
+              onClick={() => {
+                setIsSubMenuOpened(true);
+              }}
+            >
+              <span>How to use</span>{" "}
+              <img className={style["arrow"]} src="/arrow-right.svg" />
+              {isSubMenuOpened && (
+                <>
+                  <div
+                    className={style["menu-sub-overlay"]}
+                    onClick={(e) => {
+                      e.stopPropagation(); // for top level click
+                      setIsSubMenuOpened(false);
+                    }}
+                  />
+                  <div className={style["menu-sub"]}>
+                    <div className={style["menu-sub-item"]}>
+                      <span>Auto</span>
+                    </div>
+                    <div className={style["menu-sub-item"]}>
+                      <span>Home & Office</span>
+                    </div>
+                    <div className={style["menu-sub-item"]}>
+                      <span>Sport</span>
+                    </div>
+                    <div className={style["menu-sub-item"]}>
+                      <span>Travel</span>
+                    </div>
+                    <div className={style["menu-sub-item"]}>
+                      <span>Music</span>
+                    </div>
+                    <div className={style["menu-sub-item"]}>
+                      <span>Blogging</span>
+                    </div>
+                    <div className={style["menu-sub-item"]}>
+                      <span>Horeca</span>
+                    </div>
+                    <div className={style["menu-sub-item"]}>
+                      <span>No phone</span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
             <div className={style["menu-item"]}>Products</div>
             <div className={style["menu-item"]}>Shop</div>
             <div className={style["menu-item"]}>Company</div>
