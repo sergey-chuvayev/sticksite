@@ -19,6 +19,8 @@ function useWindowSize() {
       return false;
     }
 
+    const img = new Image(); // preload sprite
+    img.src = '/sprite.png';
     menuItems.forEach((item) => { // preload all images
       const img = new Image();
       img.src = item.photo;
