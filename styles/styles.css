@@ -13,11 +13,6 @@ body {
   box-sizing: border-box;
 }
 
-.container {
-  width: 100vw;
-  height: 100vh;
-}
-
 @font-face {
   font-family: "sofia_prosemi_bold";
   src: url("/fonts/sofiaprosemibold-webfont.woff2") format("woff2"),

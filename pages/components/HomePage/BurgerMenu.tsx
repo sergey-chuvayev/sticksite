@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import style from "./BurgerMenu.module.scss";
 
@@ -6,7 +6,10 @@ const BurgerMenu = ({ opened, close }) => {
   const [isSubOpened, setIsSubOpened] = useState(false);
   return (
     <div className={cx(style["BurgerMenu"], { [style["opened"]]: opened })}>
-      <div className={style["cross"]} onClick={close}>
+      <div className={style["cross"]} onClick={() => {
+        setIsSubOpened(false);
+        close();
+      }}>
         <img src="/mobile/cross.svg" alt="" />
       </div>
       <div className={style["logo"]}>

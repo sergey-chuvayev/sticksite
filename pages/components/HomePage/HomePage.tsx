@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import cx from "classnames";
-import Carousel from 'react-elastic-carousel'
+import Carousel from "react-elastic-carousel";
 import { useMediaQuery } from "react-responsive";
 import BurgerMenu from "./BurgerMenu";
 import Sprite from "./Sprite";
@@ -64,8 +64,10 @@ const menuItems = [
 ];
 
 const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1180px)' });
+  const isMobile = useMediaQuery({ query: "(max-width: 599px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const carousel = useRef(null);
+  const mobileMenu = useRef(null);
 
   const [isVisible, setIsVisible] = useState(false);
   const [isSpriteSmaler, setIsSpriteSmaler] = useState(false);
@@ -73,19 +75,22 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isSubMenuOpened, setIsSubMenuOpened] = useState(false);
   const [currentMenuItemId, setCurrentMenuItemId] = useState("");
+  const [currentMenuPicIndex, setCurrentMenuPicIndex] = useState(0);
+
+  useEffect(() => {
+    // when to scroll to view menu
+    if (mobileMenu.current && currentMenuPicIndex <= 4) {
+      mobileMenu.current.scrollTo(0, 0);
+    }
+    if (currentMenuPicIndex > 4) {
+      mobileMenu.current.scrollTo(mobileMenu.current.offsetWidth, 0);
+    }
+  }, [currentMenuPicIndex]);
+
   setTimeout(() => {
     setIsVisible(true);
   }, 500); // init after video started playing
   if (!isVisible) return null;
-
-  if (isMobile) {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-    window.addEventListener('resize', () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    });
-  }
 
   const settings = {
     className: "center",
@@ -93,11 +98,11 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
     centerPadding: "60px",
     slidesToShow: 5,
     swipeToSlide: true,
-    afterChange: function(index) {
+    afterChange: function (index) {
       console.log(
         `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
       );
-    }
+    },
   };
 
   return (
@@ -265,7 +270,7 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               );
             })}
           </div>
-          {!isMobile && !isTablet && (
+          {!isMobile && (
             <div className={style["stick"]}>
               <Sprite
                 isSmaler={isSpriteSmaler}
@@ -291,49 +296,98 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
 
         {isMobile && (
           <div className={style["mobile-slider"]}>
-            <Carousel itemsToShow={1} showArrows={false} pagination={false}>
+            {currentMenuPicIndex !== 0 && (
+              <>
+                <div
+                  className={style["mobile-slider-cross"]}
+                  onClick={() => {
+                    carousel.current.goTo(0);
+                    setCurrentMenuPicIndex(0);
+                  }}
+                ></div>
+                <div className={style['mobile-slider-name']}>
+                  FOR <span>{menuItems[currentMenuPicIndex-1].subtext}</span> <img src="/arrow-right.svg" />
+                </div>
+              </>
+            )}
+            <Carousel
+              itemsToShow={1}
+              showArrows={false}
+              pagination={false}
+              ref={carousel}
+              onNextEnd={(e) => {
+                setCurrentMenuPicIndex(e.index);
+              }}
+              onPrevEnd={(e) => {
+                setCurrentMenuPicIndex(e.index);
+              }}
+            >
               <div className={style["mobile-slider-item"]}>
                 <Sprite isStartPlayingSprite={true} isSmaler={false} />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/auto.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/auto.png)`,
+                  }}
+                />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/home.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/home.png)`,
+                  }}
+                />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/sport.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/sport.png)`,
+                  }}
+                />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/travel.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/travel.png)`,
+                  }}
+                />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/music.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/music.png)`,
+                  }}
+                />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/blogging.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/blogging.png)`,
+                  }}
+                />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/horeca.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/horeca.png)`,
+                  }}
+                />
               </div>
               <div className={style["mobile-slider-item"]}>
-                <div className={style["mobile-slider-item-pic"]} style={{
-                  backgroundImage: `url(/menu/phone.png)`,
-                }} />
+                <div
+                  className={style["mobile-slider-item-pic"]}
+                  style={{
+                    backgroundImage: `url(/menu/phone.png)`,
+                  }}
+                />
               </div>
             </Carousel>
           </div>
@@ -351,10 +405,19 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           </div>
         </div>
 
-        <div className={style["mobile-menu"]}>
+        <div className={style["mobile-menu"]} ref={mobileMenu}>
           {menuItems.map((item, i) => {
             return (
-              <div key={i} className={style["mobile-menu-item"]}>
+              <div
+                key={i}
+                className={cx(style["mobile-menu-item"], {
+                  [style["active"]]: currentMenuPicIndex === i + 1, // +1 because of the stick
+                })}
+                onClick={() => {
+                  setCurrentMenuPicIndex(i + 1);
+                  carousel.current.goTo(i + 1);
+                }}
+              >
                 <div className={style["mobile-menu-item-img"]}>
                   <img src={item.icon} />
                 </div>

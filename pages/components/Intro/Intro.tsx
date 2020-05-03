@@ -5,7 +5,7 @@ import style from "./Intro.module.scss";
 
 const Intro = ({ onVideoEnded, onVideoFullyFinished }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 769px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1025px)' });
   if (isMobile || isTablet) { // if mobile or tablet
     onVideoEnded();
     onVideoFullyFinished();
@@ -27,10 +27,14 @@ const Intro = ({ onVideoEnded, onVideoFullyFinished }) => {
           console.log('loaded video data')
           setTimeout(() => {
             onVideoEnded();
-          }, (video.current.duration * 1000 - 500)) //start fading 300ms before
+          }, (video.current.duration * 1000 - 800)) //start fading before
         }}
         ref={video}
-        onEnded={() => { setIsFade(true); onVideoFullyFinished(); }}
+        onEnded={() => {
+          setIsFade(true);
+          onVideoFullyFinished();
+          onVideoEnded();
+        }}
       >
       </video>
     </div>
