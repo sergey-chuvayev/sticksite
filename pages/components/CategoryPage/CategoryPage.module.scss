@@ -1,11 +1,45 @@
 .CategoryPage {
-  background-image: url('/backgrounds/sport.png');
-  background-size: cover;
+  height: 100vh;
+  overflow: auto;
+}
+
+.main-frame {
+  height: 100vh;
   padding: 35px 40px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 0;
+}
+
+.category-arrow-down {
+  background-image: url('/category-arrow-down.svg');
+  background-repeat: no-repeat;
+  width: 162px;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.main-content {
   position: relative;
+  z-index: 1;
+  background-color: #fff;
+  color: #000;
+}
+
+.main-content-section {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 60px;
+  padding-top: 100px;
+  padding-bottom: 70px;
+  &.main-content-section--no-rigth-padding {
+    padding-right: 0;
+  }
 }
 
 .top {
@@ -14,9 +48,23 @@
   justify-content: space-between;
   align-items: center;
   height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 40px;
+  transition: all 300ms;
+  background-color: rgba(255,255,255,0);
+  &.black {
+    background-color: rgba(255,255,255,1);
+    .menu {
+      color: black;
+    }
+  }
 }
 
 .menu {
+  transition: color 300ms;
   margin-right: 90px;
 }
 
@@ -26,6 +74,7 @@
   width: 20px;
   height: 26px;
   padding-top: 10px;
+  mix-blend-mode: difference;
 }
 
 .counter {
@@ -47,12 +96,15 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .vertical-menu {
-  display: flex;
-  width: max-content;
+  position: absolute;
+  left: 40px;
+  // mix-blend-mode: difference;
+  top: 190px;  width: max-content;
+  z-index: 3;
 }
 
 
@@ -66,7 +118,7 @@
     position: absolute;
     height: 1px;
     background-color: #fff;
-    top: 58px;
+    top: 46px;
     left: -85px;
   }
 }
@@ -76,7 +128,6 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 149%;
-  margin-bottom: 11px;
 }
 
 .big-title {
@@ -98,14 +149,41 @@
   height: 30px;
   margin-right: 14px;
   transform: rotate(-180deg);
+  cursor: pointer;
 }
 
 .circle-arrows-nav-forth {
   background-image: url('/circle-arrow.svg');
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .description {
   margin-top: 92px;
+  width: 90%;
+  font-size: 20px;
+  line-height: 141%;
+}
+
+.carousel {
+  position: absolute;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  .rec-slider-container {
+    div {
+      margin: 0 !important;
+    }
+  }
+}
+
+.bgimage {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

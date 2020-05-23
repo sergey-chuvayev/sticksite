@@ -1,0 +1,14 @@
+.Logo {
+  .st1 {
+    transition: fill stroke 300ms;
+  }
+  &.white {
+
+  }
+  &.black {
+    .st1 {
+      fill: #000;
+      stroke: #000;
+    }
+  }
+}

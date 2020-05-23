@@ -1,0 +1,80 @@
+.ArticleType9 {
+  width: 1100px;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  margin-right: 140px;
+  width: 470px;
+  flex-shrink: 0;
+}
+
+.top {
+  display: flex;
+}
+
+.img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  margin-right: 20px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.title {
+}
+
+.big {
+  font-family: "sofia_probold";
+  max-width: 210px;
+  -webkit-text-fill-color: #fff; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+  font-size: 42px;
+  line-height: 110.5%;
+  text-transform: uppercase;
+}
+
+.small {
+  font-size: 16px;
+  line-height: 149%;
+  text-decoration-line: underline;
+  color: #dd0017;
+  margin-top: 30px;
+  img {
+    position: relative;
+    left: 4px;
+    top: -1px;
+  }
+}
+
+.desc {
+  margin-top: 65px;
+  font-size: 20px;
+  line-height: 149%;
+}
+
+.right {
+}
+
+.grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gridimg {
+  width: 174px;
+  height: 250px;
+}
+
+.griddesc {
+  font-size: 16px;
+  line-height: 149%;
+  text-align: center;
+  color: #848484;
+  margin-top: 24px;
+}

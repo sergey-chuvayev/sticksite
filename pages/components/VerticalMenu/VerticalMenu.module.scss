@@ -1,10 +1,27 @@
 .VerticalMenu {
   display: flex;
   flex-direction: column;
+  transition: color 300ms;
+  &.black {
+    color: #000;
+    .arrow-right {
+      path {
+        stroke: #000;
+      }
+    }
+  }
+  &.white {
+    color: #fff;
+    .arrow-right {
+      path {
+        stroke: #fff;
+      }
+    }
+  }
 }
 
 .item {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   &:last-child {
     margin-bottom: 0;
   }
@@ -39,12 +56,21 @@
   }
 }
 
-.sub-item-name {
-
-}
-
 .sub-item-icon {
   margin-right: 8px;
+  path {
+    transition: fill 300ms;
+  }
+  &.white {
+    path {
+      fill: #fff;
+    }
+  }
+  &.black {
+    path {
+      fill: #000;
+    }
+  }
 }
 
 .item-name-container {
@@ -54,6 +80,9 @@
 }
 
 .arrow-right {
+  path {
+    transition: stroke 300ms;
+  }
   margin-right: 8px;
 }
 

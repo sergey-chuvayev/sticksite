@@ -1,0 +1,35 @@
+.ArticleType7 {
+  width: 1050px;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  margin-right: 100px;
+}
+
+.desc {
+  font-size: 20px;
+  line-height: 149%;
+  width: 465px;
+}
+
+.title {
+  width: 270px;
+  flex-shrink: 0;
+  display: flex;
+  position: relative;
+  &:before {
+    height: 1px;
+    background-color: #000;
+    width: 77px;
+    content: '';
+    position: absolute;
+    left: -100px;
+    top: 17px;
+  }
+  font-family: 'sofia_prosemi_bold';
+  font-size: 27px;
+  line-height: 120.5%;
+  text-transform: uppercase;
+}

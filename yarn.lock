@@ -4374,10 +4374,12 @@ react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-react-elastic-carousel@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/react-elastic-carousel/-/react-elastic-carousel-0.4.1.tgz#6486fa7514f50fdc2af95277a6cfe860b0702020"
-  integrity sha512-lsaj7JD4ags55caRx8UlPpP+BvHEHbdT0RbawyzAJV/Aixsw6S3QkSBKi2v/utbtaVVRcr/euRr9UQOaK1wJXg==
+react-elastic-carousel@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/react-elastic-carousel/-/react-elastic-carousel-0.6.1.tgz#b979dfbd5c9a16e5ffa0b46f1edc395ca0463eed"
+  integrity sha512-mqS24wBLhfW66c117pstfSfaMAA1r3Hki8cuugXe03JubcHfIVPRO50+JLLVJ3D7TS1ZC5U01h+sGp3KUIdIZw==
+  dependencies:
+    react-swipeable "^5.5.1"
 
 react-is@16.8.6:
   version "16.8.6"
@@ -4411,6 +4413,13 @@ react-sprite-animator@^1.3.0:
   dependencies:
     raf "^3.2.0"
     react "^16.8.6"
+
+react-swipeable@^5.5.1:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.5.1.tgz#48ae6182deaf62f21d4b87469b60281dbd7c4a76"
+  integrity sha512-EQObuU3Qg3JdX3WxOn5reZvOSCpU4fwpUAs+NlXSN3y+qtsO2r8VGkVnOQzmByt3BSYj9EWYdUOUfi7vaMdZZw==
+  dependencies:
+    prop-types "^15.6.2"
 
 react@^16.13.1, react@^16.8.6:
   version "16.13.1"

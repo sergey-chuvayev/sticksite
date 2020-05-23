@@ -1,0 +1,36 @@
+.ArticleType11 {
+  width: 1100px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -20px;
+}
+
+.img {
+  height: 340px;
+  flex-grow: 1;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  background-size: cover;
+  background-position: center;
+  &.big {
+    width: 60%;
+  }
+  &.medium {
+    width: 40%;
+  }
+  &.small {
+    width: 20%;
+  }
+}
+
+.desc {
+  font-size: 16px;
+  line-height: 149%;
+  text-align: center;
+  color: #868686;
+  max-width: 800px;
+  margin: 0 auto;
+}
