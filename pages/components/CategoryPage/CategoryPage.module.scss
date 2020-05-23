@@ -1,0 +1,42 @@
+.CategoryPage {
+  background-image: url('/backgrounds/sport.png');
+  background-size: cover;
+  padding: 35px 40px;
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.menu {
+
+}
+
+.cart {
+  background-image: url('/mobile/bag.svg');
+  background-size: contain;
+  width: 20px;
+  height: 26px;
+  padding-top: 10px;
+}
+
+.counter {
+  color: #fff;
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  background-image: url('/logo.svg');
+  background-size: contain;
+  width: 163px;
+  height: 50px;
+}

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive'
 import HomePage from "./components/HomePage/HomePage.tsx";
+import CategoryPage from "./components/CategoryPage/CategoryPage.tsx";
 import Intro from "./components/Intro/Intro.tsx";
 
-const WITH_INTRO = true;
+const WITH_INTRO = false;
 
 export default function Home() {
   const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
@@ -23,11 +24,12 @@ export default function Home() {
 
   return (
     <div className="container" id="container">
-      <HomePage
+      <CategoryPage />
+      {/* <HomePage
         isAppeared={isVideoFinished}
         isStartPlayingSprite={isStartPlayingSprite}
-      />
-      {isDesktop && WITH_INTRO && (
+      /> */}
+      {/* {isDesktop && WITH_INTRO && (
         <Intro
           onVideoEnded={() => {
             setIsVideoFinished(true);
@@ -36,7 +38,7 @@ export default function Home() {
             setStartPlayingAnimation(true);
           }}
         />
-      )}
+      )} */}
     </div>
   );
 }
