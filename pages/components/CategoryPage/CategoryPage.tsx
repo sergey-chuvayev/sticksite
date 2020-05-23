@@ -21,6 +21,21 @@ const CategoryPage = () => {
         <div className={style['vertical-menu']}>
           <VerticalMenu />
         </div>
+        <div className={style['content']}>
+          <div className={style['small-title']}>
+            IMSPORT
+          </div>
+          <div className={style['big-title']}>
+            HOW TO USE<br/>IMSTICK FOR<br/>Sport activities
+          </div>
+          <div className={style['circle-arrows-nav']}>
+            <div className={style['circle-arrows-nav-back']}></div>
+            <div className={style['circle-arrows-nav-forth']}></div>
+          </div>
+          <div className={style['description']}>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium now er doloremque noe laudantium, totam rem aperiam, eaque ipsa quae ab illo
+          </div>
+        </div>
       </div>
     </div>
   )
