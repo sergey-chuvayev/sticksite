@@ -4,19 +4,20 @@ import '../styles/styles.css';
 import './components/Header/Header.scss';
 import './components/Menu/Menu.scss';
 import './components/CategoryPage/CategoryPage.scss';
+import './components/HomePage/BurgerMenu.scss';
 import './components/SubcategoryPage/SubcategoryPage.scss';
-
-const preloadedPhotos = [
-  '/menu/auto.png',
-  '/menu/home.png',
-  '/menu/sport.png',
-  '/menu/travel.png',
-  '/menu/music.png',
-  '/menu/blogging.png',
-  '/menu/horeca.png',
-  '/menu/phone.png',
-  '/sprite.png',
-]
+import './components/VerticalMenu/VerticalMenu.scss';
+import './components/article-components/ArticleType1/ArticleType1.scss';
+import './components/article-components/ArticleType2/ArticleType2.scss';
+import './components/article-components/ArticleType3/ArticleType3.scss';
+import './components/article-components/ArticleType4/ArticleType4.scss';
+import './components/article-components/ArticleType5/ArticleType5.scss';
+import './components/article-components/ArticleType6Slider/ArticleType6Slider.scss';
+import './components/article-components/ArticleType7/ArticleType7.scss';
+import './components/article-components/ArticleType8/ArticleType8.scss';
+import './components/article-components/ArticleType9/ArticleType9.scss';
+import './components/article-components/ArticleType10/ArticleType10.scss';
+import './components/article-components/ArticleType11/ArticleType11.scss';
 
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {

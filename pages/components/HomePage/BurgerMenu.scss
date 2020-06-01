@@ -32,7 +32,7 @@
   }
 }
 
-.cross {
+.BurgerMenu__cross {
   position: absolute;
   @include tablet {
     top: 36px;
@@ -46,7 +46,7 @@
   }
 }
 
-.logo {
+.BurgerMenu__logo {
   align-self: center;
   margin-top: 30px;
   @include tablet {
@@ -61,7 +61,7 @@
   }
 }
 
-.menu {
+.BurgerMenu__menu {
   align-self: center;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -74,7 +74,7 @@
   }
 }
 
-.menu-item {
+.BurgerMenu__menu-item {
   margin-bottom: 25px;
   text-transform: uppercase;
   text-align: center;
@@ -84,7 +84,7 @@
   @include phone {
     font-size: 20px;
   }
-  &.with-arrow {
+  &.BurgerMenu__with-arrow {
     @include tablet {
       margin-right: -26px;
     }
@@ -92,7 +92,7 @@
       margin-right: -11px;
     }
   }
-  .arrow {
+  .BurgerMenu__arrow {
     transform: rotate(90deg) translate(-2px, -3px);
     @include tablet {
       width: 16px;
@@ -100,14 +100,14 @@
     @include phone {
       width: 8px;
     }
-    &.opened {
+    &.BurgerMenu__opened {
 
     }
   }
   &:last-child {
     margin-bottom: 0;
   }
-  &.active {
+  &.BurgerMenu__active {
     span {
       position: relative;
       &:after {
@@ -123,7 +123,7 @@
   }
 }
 
-.bottom {
+.BurgerMenu__bottom {
   margin-top: auto;
   align-self: center;
   margin-bottom: -5px;
@@ -145,7 +145,7 @@
   }
 }
 
-.socials {
+.BurgerMenu__socials {
   display: flex;
   @include tablet {
     padding-top: 60px;
@@ -155,7 +155,7 @@
   }
 }
 
-.socials-item {
+.BurgerMenu__socials-item {
   margin-right: 17px;
   &:last-child {
     margin-right: 0;
@@ -172,11 +172,11 @@
   }
 }
 
-.menu-sub {
+.BurgerMenu__menu-sub {
   margin-bottom: 40px;
 }
 
-.menu-sub-item {
+.BurgerMenu__menu-sub-item {
   margin-bottom: 18px;
   text-align: center;
   text-transform: lowercase;

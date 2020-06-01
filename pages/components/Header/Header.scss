@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.scss';
+
 .Header__top {
   display: flex;
   width: 100%;
@@ -13,15 +15,47 @@
   background-color: rgba(255,255,255,0);
   &.black {
     background-color: rgba(255,255,255,1);
-    .menu {
+    .Header__menu {
       color: black;
     }
+    .Header__burger {
+      mix-blend-mode: difference;
+    }
+    .Header__mobile-logo {
+      mix-blend-mode: difference;
+    }
+  }
+  @include phone {
+    padding: 20px;
+    padding-top: 33px;
+    padding-bottom: 33px;
+    flex-direction: row-reverse;
   }
 }
 
 .Header__menu {
   transition: color 300ms;
   margin-right: 90px;
+  @include tablet {
+    display: none;
+  }
+}
+
+.Header__burger {
+  background-image: url('/mobile/burger.svg');
+  width: 32px;
+  height: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: none;
+  @include tablet {
+    display: block;
+  }
+  @include phone {
+    width: 25px;
+    height: 10px;
+  }
 }
 
 .Header__cart {
@@ -31,6 +65,21 @@
   height: 26px;
   padding-top: 10px;
   mix-blend-mode: difference;
+  @include tablet {
+    margin-left: auto;
+    margin-right: 18px;
+    width: 25px;
+    height: 33px;
+    padding-top: 14px;
+    position: relative;
+    top: -4px;
+  }
+  @include phone {
+    margin: 0;
+    width: 15px;
+    height: 20px;
+    padding-top: 20px;
+  }
 }
 
 .Header__counter {
@@ -45,4 +94,19 @@
   background-size: contain;
   width: 163px;
   height: 50px;
+  @include phone {
+    display: none;
+  }
+}
+
+.Header__mobile-logo {
+  background-image: url('/mobile/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 26px;
+  display: none;
+  @include phone {
+    display: block;
+  }
 }

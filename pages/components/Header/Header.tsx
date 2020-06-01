@@ -18,6 +18,8 @@ const Header = ({ themeColor }) => {
       <div className="Header__cart">
         <div className="Header__counter">99</div>
       </div>
+      <div className="Header__mobile-logo" />
+      <div className="Header__burger" />
     </div>
   );
 };

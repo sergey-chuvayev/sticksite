@@ -1,0 +1,132 @@
+@import '../../../../styles/mixins.scss';
+
+.ArticleType8 {
+  width: 1100px;
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.ArticleType8__main-title {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.ArticleType8__main-title-small {
+  font-size: 13px;
+  line-height: 149%;
+  color: #DD0017;
+  text-transform: uppercase;
+  font-family: 'sofia_prosemi_bold';
+  @include phone {
+    font-size: 10px;
+    line-height: 149%;
+    margin-bottom: 8px;
+  }
+}
+
+.ArticleType8__main-title-big {
+  font-size: 42px;
+  line-height: 110.5%;
+  text-transform: uppercase;
+  color: #000000;
+  font-family: 'sofia_prosemi_bold';
+  @include phone {
+    font-size: 27px;
+    line-height: 85.5%;
+  }
+}
+
+.ArticleType8__content {
+  display: flex;
+  align-self: flex-end;
+  justify-content: space-between;
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px 0;
+  }
+  @include phone {
+    grid-gap: 30px 0;
+  }
+}
+
+.ArticleType8__item {
+  display: flex;
+  flex-direction: column;
+  margin-right: 36px;
+  width: 214px;
+  &:last-child {
+    margin-right: 0;
+  }
+  @include tablet {
+    justify-content: space-between;
+    margin: 0 auto;
+    &:last-child {
+      margin: 0 auto;
+    } 
+  }
+  @include phone {
+    width: 134px;
+  }
+}
+
+.ArticleType8__image {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  right: 30px;
+  height: 130px;
+  position: relative;
+  @include phone {
+    right: 0;
+    width: 80%;
+  }
+}
+
+.ArticleType8__number {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 50%;
+  @include phone {
+    margin-bottom: 8px;
+  }
+}
+
+.ArticleType8__title {
+  font-size: 17px;
+  line-height: 17px;
+  font-family: 'sofia_probold';
+  text-transform: uppercase;
+  margin-top: 40px;
+  position: relative;
+  img {
+    position: relative;
+    bottom: 2px;
+    left: 3px;
+  }
+  span {
+    @include phone {
+      font-size: 10px;
+      line-height: 10px;
+    }
+  }
+  @include phone {
+    margin-top: 10px;
+  }
+}
+
+.ArticleType8__desc {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 149%;
+  @include phone {
+    font-size: 10px;
+    line-height: 149%;
+    margin-top: 8px;
+  }
+}

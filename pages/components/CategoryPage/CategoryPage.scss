@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.scss';
+
 .CategoryPage {
   height: 100vh;
   overflow: auto;
@@ -11,6 +13,9 @@
   position: sticky;
   top: 0;
   z-index: 0;
+  @include phone {
+    padding: 18px;
+  }
 }
 
 .CategoryPage__category-arrow-down {
@@ -23,6 +28,9 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 0);
+  @include tablet {
+    display: none;
+  }
 }
 
 .CategoryPage__main-content {
@@ -38,8 +46,18 @@
   padding-right: 60px;
   padding-top: 100px;
   padding-bottom: 70px;
+  overflow: hidden;
   &.CategoryPage__main-content-section--no-rigth-padding {
     padding-right: 0;
+    @include tablet {
+      padding: 0;
+      padding-bottom: 80px;
+    }
+  }
+  @include tablet {
+    display: block;
+    padding: 20px;
+    padding-bottom: 80px;
   }
 }
 
@@ -49,6 +67,17 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  @include tablet {
+    justify-content: flex-start;
+    align-items: start;
+    padding-top: 120px;
+    padding-bottom: 50px;
+  }
+  @include phone {
+    padding-top: 80px;
+    padding-bottom: 0;
+    height: initial;
+  }
 }
 
 .CategoryPage__vertical-menu {
@@ -57,6 +86,9 @@
   // mix-blend-mode: difference;
   top: 190px;  width: max-content;
   z-index: 3;
+  @include tablet {
+    display: none;
+  }
 }
 
 
@@ -64,6 +96,14 @@
   margin-right: 50px;
   width: 420px;
   position: relative;
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  @include phone {
+    height: initial;
+  }
   &:after {
     content: '';
     width: 64px;
@@ -72,6 +112,9 @@
     background-color: #fff;
     top: 46px;
     left: -85px;
+    @include tablet {
+      display: none;
+    }
   }
 }
 
@@ -89,10 +132,33 @@
   line-height: 97.5%;
   text-transform: uppercase;
   margin-bottom: 21px;
+  position: relative;
+  @include phone {
+    font-size: 30px;
+    line-height: 104%;
+  }
+  &:after {
+    display: none;
+    content: '';
+    width: 64px;
+    position: absolute;
+    height: 1px;
+    background-color: #fff;
+    bottom: -34px;
+    @include tablet {
+      display: block;
+    }
+  }
 }
 
 .CategoryPage__circle-arrows-nav {
   display: flex;
+  @include tablet {
+    margin-top: auto;
+  }
+  @include phone {
+    display: none;
+  }
 }
 
 .CategoryPage__circle-arrows-nav-back {
@@ -116,6 +182,12 @@
   width: 90%;
   font-size: 20px;
   line-height: 141%;
+  @include tablet {
+    margin-top: 20px;
+  }
+  @include phone {
+    display: none;
+  }
 }
 
 .CategoryPage__carousel {

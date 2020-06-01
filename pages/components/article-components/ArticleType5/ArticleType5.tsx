@@ -1,71 +1,69 @@
 import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 
-import style from "./ArticleType5.module.scss";
-
 const ArticleType5 = () => {
   const imagesGrid = useRef(null);
   const [imagesGridClass, setImagesGridClass] = useState<
-    "single-image" | "multiple-images"
-  >("multiple-images");
+    "ArticleType5__single-image" | "ArticleType5__multiple-images"
+  >("ArticleType5__multiple-images");
   useEffect(() => {
     if (imagesGrid.current.children.length === 1) {
-      setImagesGridClass("single-image");
+      setImagesGridClass("ArticleType5__single-image");
     }
     if (imagesGrid.current.children.length > 1) {
-      setImagesGridClass("multiple-images");
+      setImagesGridClass("ArticleType5__multiple-images");
     }
   }, []);
   return (
-    <div className={style["ArticleType5"]}>
-      <div className={style["left"]}>
-        <div className={style["title"]}>HOW TO FIX IMStick<br/>to your DEVICE</div>
-        <div className={style["divider"]} />
-        <div className={style["info-blocks"]}>
-          <div className={style["block"]}>
-            <div className={style["num"]}>
+    <div className="ArticleType5">
+      <div className="ArticleType5__left">
+        <div className="ArticleType5__title">HOW TO FIX IMStick<br/>to your DEVICE</div>
+        <div className="ArticleType5__divider" />
+        <div className="ArticleType5__info-blocks">
+          <div className="ArticleType5__block">
+            <div className="ArticleType5__num">
               <span>1</span>
             </div>
-            <div className={style["text"]}>
+            <div className="ArticleType5__text">
               Lorem ipsum dolor sit amet, consectetur adips
             </div>
           </div>
-          <div className={style["block"]}>
-            <div className={style["num"]}>
+          <div className="ArticleType5__block">
+            <div className="ArticleType5__num">
               <span>2</span>
             </div>
-            <div className={style["text"]}>
+            <div className="ArticleType5__text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eni
             </div>
           </div>
-          <div className={style["block"]}>
-            <div className={style["num"]}>
+          <div className="ArticleType5__block">
+            <div className="ArticleType5__num">
               <span>3</span>
             </div>
-            <div className={style["text"]}>
+            <div className="ArticleType5__text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eni
             </div>
           </div>
-          <div className={style["block"]}>
-            <div className={style["num"]}>
+          <div className="ArticleType5__block">
+            <div className="ArticleType5__num">
               <span>4</span>
             </div>
-            <div className={style["text"]}>
+            <div className="ArticleType5__text">
               Lorem ipsum dolor sit amet, consectetur.
             </div>
           </div>
         </div>
-        <div className={style["down-img"]}>
+        <div className="ArticleType5__down-img">
           <img src="/assets/phone.svg" alt="" />
         </div>
       </div>
-      <div className={style["right"]}>
+      <div className="ArticleType5__right">
         <div
           ref={imagesGrid}
-          className={cx(style["grid"], style[imagesGridClass])}
+          className={cx("ArticleType5__grid", imagesGridClass)}
         >
           <div
-            className={style["grid-img"]}
+            className="ArticleType5__grid-img"
             style={{ backgroundImage: "url(/assets/1.png)" }}
           />
         </div>

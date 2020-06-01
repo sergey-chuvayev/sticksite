@@ -4,7 +4,7 @@
   transition: color 300ms;
   &.black {
     color: #000;
-    .arrow-right {
+    .VerticalMenu__Item__arrow-right {
       path {
         stroke: #000;
       }
@@ -12,7 +12,7 @@
   }
   &.white {
     color: #fff;
-    .arrow-right {
+    .VerticalMenu__Item__arrow-right {
       path {
         stroke: #fff;
       }
@@ -20,15 +20,15 @@
   }
 }
 
-.item {
+.VerticalMenu__Item__item {
   margin-bottom: 14px;
   &:last-child {
     margin-bottom: 0;
   }
   &.is-active {
-    .item-name-container {
+    .VerticalMenu__Item__item-name-container {
       color: #DD0017;
-      .arrow-right {
+      .VerticalMenu__Item__arrow-right {
         transform: rotate(90deg);
         path {
           fill: #DD0017;
@@ -44,7 +44,7 @@
   margin-left: 16px;
 }
 
-.sub-item {
+.SubMenu__sub-item {
   font-size: 14px;
   text-transform: capitalize;
   margin-bottom: 8px;
@@ -56,7 +56,7 @@
   }
 }
 
-.sub-item-icon {
+.SubMenu__sub-item-icon {
   margin-right: 8px;
   path {
     transition: fill 300ms;
@@ -73,20 +73,20 @@
   }
 }
 
-.item-name-container {
+.VerticalMenu__Item__item-name-container {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.arrow-right {
+.VerticalMenu__Item__arrow-right {
   path {
     transition: stroke 300ms;
   }
   margin-right: 8px;
 }
 
-.item-name {
+.VerticalMenu__Item__item-name {
   font-size: 14px;
   text-transform: uppercase;
 }

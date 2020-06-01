@@ -1,0 +1,133 @@
+@import '../../../../styles/mixins.scss';
+
+.ArticleType4 {
+  width: 1050px;
+  display: flex;
+  align-items: center;
+  @include tablet {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.ArticleType4__left {
+  margin-right: 100px;
+  @include tablet {
+    margin-right: 0;
+  }
+}
+
+.ArticleType4__title {
+}
+
+.ArticleType4__title-small {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 149%;
+  color: #dd0017;
+  font-family: "sofia_prosemi_bold";
+  display: flex;
+  &:before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background-color: #dd0017;
+    position: relative;
+    top: 9px;
+    margin-right: 10px;
+  }
+}
+
+.ArticleType4__title-big {
+  font-family: "sofia_probold";
+  margin-top: 9px;
+  font-size: 42px;
+  line-height: 110.5%;
+  text-transform: uppercase;
+  @include phone {
+    font-size: 27px;
+    line-height: 100%;
+  }
+}
+
+.ArticleType4__desc {
+  font-size: 20px;
+  line-height: 149%;
+  margin-top: 110px;
+  @include tablet {
+    margin-top: 20px;
+  }
+  @include phone {
+    font-size: 14px;
+    line-height: 149%;
+  }
+}
+
+.ArticleType4__addition {
+  margin-top: 110px;
+  display: flex;
+  @include tablet {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+.ArticleType4__addition-block {
+  display: flex;
+  &ArticleType4__:first-child {
+    margin-right: 22px;
+  }
+}
+
+.ArticleType4__icon {
+  margin-right: 14px;
+  margin-top: 8px;
+}
+
+.ArticleType4__text {
+  max-width: 140px;
+  font-family: "sofia_prolight";
+  color: #dd0017;
+  @include phone {
+    font-size: 10px;
+    line-height: 149%;
+  }
+}
+
+.ArticleType4__grid-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ArticleType4__right  {
+  display: grid;
+  grid-gap: 12px;
+  @include tablet {
+    margin-top: 30px;
+    width: 100%;
+  }
+  &.ArticleType4__single-image {
+    grid-template-columns: 1fr;
+    .ArticleType4__grid-img {
+      width: 462px;
+      height: 638px;
+      @include tablet {
+        width: 100%;
+      }
+    }
+  }
+  &.ArticleType4__multiple-images {
+    grid-template-columns: 1fr 1fr;
+    @include phone {
+      grid-template-columns: 1fr;
+    }
+    .ArticleType4__grid-img {
+      width: 225px;
+      height: 313px;
+      @include tablet {
+        width: 100%;
+      }
+    }
+  }
+}
