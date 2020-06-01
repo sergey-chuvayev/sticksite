@@ -1,0 +1,119 @@
+.SubcategoryPage {
+  height: 100vh;
+  overflow: auto;
+  color: #000;
+}
+
+.SubcategoryPage__vertical-menu {
+  position: absolute;
+  left: 40px;
+  // mix-blend-mode: difference;
+  top: 190px;  width: max-content;
+  z-index: 3;
+}
+
+.SubcategoryPage__main-frame {
+  height: 100vh;
+  padding: 35px 40px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  background-color: #fff;
+}
+
+.SubcategoryPage__category-arrow-down {
+  background-image: url('/category-arrow-down.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 162px;
+  height: 70px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  mix-blend-mode: difference;
+}
+
+.SubcategoryPage__main-content {
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  color: #000;
+}
+
+.SubcategoryPage__content-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 100%;
+  align-items: center;
+}
+
+.SubcategoryPage__image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.SubcategoryPage__image__text {
+  position: absolute;
+  width: 100%;
+  top: -20px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.SubcategoryPage__image__text__num {
+  position: absolute;
+  font-size: 12px;
+  line-height: 110.5%;
+  letter-spacing: -0.025em;
+  left: 0;
+  top: 0;
+}
+
+.SubcategoryPage__image__text__catname {
+  font-family: "sofia_probold";
+  font-size: 144px;
+  text-align: center;
+  letter-spacing: -0.025em;
+  line-height: 120px;
+  -webkit-text-fill-color: rgba(#fff, 0); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+}
+
+.SubcategoryPage__text {
+  padding: 90px;
+}
+
+.SubcategoryPage__text__title {
+  // font-family: "sofia_prosemi_bold";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.SubcategoryPage__text__divider {
+  width: 58px;
+  height: 1px;
+  background-color: #000;
+  margin-top: 27px;
+  margin-bottom: 35px;
+}
+
+.SubcategoryPage__text__text {
+  font-size: 14px;
+  line-height: 149%;
+}
+
+.SubcategoryPage__text__image {
+  width: 148px;
+  height: auto;
+  margin-top: 12px;
+}

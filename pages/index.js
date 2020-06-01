@@ -13,23 +13,22 @@ export default function Home() {
   const [isVideoFinished, setIsVideoFinished] = useState(!isDesktop || !WITH_INTRO || false);
   const [isStartPlayingSprite, setStartPlayingAnimation] = useState(!isDesktop || !WITH_INTRO || false);
 
-  // if (isMobile) {
-  //   let vh = window.innerHeight * 0.01;
-  //   document.documentElement.style.setProperty("--vh", `${vh}px`);
-  //   window.addEventListener("resize", () => {
-  //     let vh = window.innerHeight * 0.01;
-  //     document.documentElement.style.setProperty("--vh", `${vh}px`);
-  //   });
-  // }
+  if (isMobile) {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  }
 
   return (
     <div className="container" id="container">
-      <CategoryPage />
-      {/* <HomePage
+      <HomePage
         isAppeared={isVideoFinished}
         isStartPlayingSprite={isStartPlayingSprite}
-      /> */}
-      {/* {isDesktop && WITH_INTRO && (
+      />
+      {isDesktop && WITH_INTRO && (
         <Intro
           onVideoEnded={() => {
             setIsVideoFinished(true);
@@ -38,7 +37,7 @@ export default function Home() {
             setStartPlayingAnimation(true);
           }}
         />
-      )} */}
+      )}
     </div>
   );
 }

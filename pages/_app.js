@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
+
 import '../styles/styles.css';
+import './components/Header/Header.scss';
+import './components/Menu/Menu.scss';
+import './components/CategoryPage/CategoryPage.scss';
+import './components/SubcategoryPage/SubcategoryPage.scss';
 
 const preloadedPhotos = [
   '/menu/auto.png',

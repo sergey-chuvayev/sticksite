@@ -1,0 +1,48 @@
+.Header__top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  padding: 40px;
+  transition: all 300ms;
+  background-color: rgba(255,255,255,0);
+  &.black {
+    background-color: rgba(255,255,255,1);
+    .menu {
+      color: black;
+    }
+  }
+}
+
+.Header__menu {
+  transition: color 300ms;
+  margin-right: 90px;
+}
+
+.Header__cart {
+  background-image: url('/mobile/bag.svg');
+  background-size: contain;
+  width: 20px;
+  height: 26px;
+  padding-top: 10px;
+  mix-blend-mode: difference;
+}
+
+.Header__counter {
+  color: #fff;
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.Header__logo {
+  background-image: url('/logo.svg');
+  background-size: contain;
+  width: 163px;
+  height: 50px;
+}

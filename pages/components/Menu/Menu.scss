@@ -1,10 +1,13 @@
 @import '../../../styles/mixins.scss';
 
-.menu {
+.Menu__menu {
   display: flex;
+  &.black {
+    color: black;
+  }
 }
 
-.menu-item {
+.Menu__menu-item {
   text-align: right;
   text-transform: uppercase;
   font-family: 'sofia_prosemi_bold';
@@ -12,19 +15,19 @@
   font-size: 17px;
   position: relative;
   cursor: pointer;
-  // &.with-arrow {
-  //   margin-right: 12px;
-  // }
-  .arrow {
+  .Menu__arrow {
     transform: rotate(90deg) translate(-2px, -3px);
+    &.black {
+      path {
+        fill: #000;
+        stroke: #000;
+      }
+    }
     @include tablet {
       width: 20px;
     }
     @include phone {
       width: 8px;
-    }
-    &.opened {
-
     }
   }
   &:after {
@@ -47,49 +50,42 @@
   }
 }
 
-.menu-sub-overlay {
+.Menu__menu-sub-overlay {
   padding-top: 20px;
   position: absolute;
   top: 0;
   padding-top: 43px;
-  left: -30px;
+  left: 0;
 }
 
-.menu-sub {
-  background-color: #000;
-  color: #fff;
+.Menu__menu-sub {
+  background: rgba(250, 250, 250, 0.96);
+  border: 1px solid #E6E6E6;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.11);
   border-radius: 4px;
+  color: black;
   position: relative;
   border: 1px solid #ddd;
   min-width: 160px;
-  padding: 16px 0;
-  padding-bottom: 18px;
+  padding: 10px;
   z-index: 5;
-  // &.open-animation {
-  //   transform: translate(0, 0);
-  //   opacity: 1;
-  // }
-  &:after {
-    content: "";
-    width: 10px;
-    height: 10px;
-    top: -6px;
-    left: 76px;
-    transform: rotate(45deg);
-    border-top: 1px solid #ddd;
-    border-left: 1px solid #ddd;
-    background-color: #000;
-    position: absolute;
-  }
   @include tablet {
     display: none;
   }
 }
 
-.menu-sub-item {
-  text-transform: lowercase;
-  margin-bottom: 8px;
-  text-align: center;
+.Menu__menu-sub-item {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 149%;
+  text-transform: uppercase;
+  text-align-last: left;
+  color: rgba(0, 0, 0, 0.87);
+  margin-bottom: 4px;
+  &:last-child {
+    margin-bottom: 0;
+  }
   span {
     &:after {
       width: 0;
@@ -109,7 +105,7 @@
       content: '';
       position: absolute;
       height: 2px;
-      background-color: #fff;
+      background-color: rgba(0, 0, 0, 0.87);
       bottom: -2px;
       left: 0;
     }

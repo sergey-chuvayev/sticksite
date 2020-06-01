@@ -196,7 +196,7 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
 
         <div className={style["middle"]}>
           <div className={style['menu']}>
-            <Menu />
+            <Menu themeColor="white" />
           </div>
           <div className={style["circle-menu"]}>
             {menuItems.map((item, i) => {
