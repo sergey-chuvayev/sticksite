@@ -10,26 +10,36 @@ const SubcategoryPage = () => {
       <div className="SubcategoryPage__vertical-menu">
         <VerticalMenu color="black" />
       </div>
-      <Header themeColor="black" />
+      <Header themeColor="black" onOpenMenu={() => {}} />
       <div className="SubcategoryPage__main-frame">
         <div className="SubcategoryPage__content-grid">
           <div /> {/* grid span */}
           <div className="SubcategoryPage__image">
             <div className="SubcategoryPage__image__text">
-              {/* <div className="SubcategoryPage__image__text__num">
-                03
-              </div> */}
               <div className="SubcategoryPage__image__text__catname">
-                OUTDOOR
+                <span>01</span>
+                <span>OUTDOOR</span>
               </div>
             </div>
-            <img src="/assets/subround.png" alt="" />
+            <img
+              src="/assets/subround.png"
+              className="SubcategoryPage__image__img"
+              alt=""
+            />
           </div>
           <div className="SubcategoryPage__text">
-            <div className="SubcategoryPage__text__title">
-              FIND YOUR WAY FOR THE BEST TIME
+            <div className="SubcategoryPage__text__top">
+              <div
+                style={{ backgroundImage: `url(/assets/subimg.png)` }}
+                className="SubcategoryPage__text__top__image"
+              />
+              <div>
+                <div className="SubcategoryPage__text__title">
+                  FIND YOUR WAY FOR THE BEST TIME
+                </div>
+                <div className="SubcategoryPage__text__divider" />
+              </div>
             </div>
-            <div className="SubcategoryPage__text__divider" />
             <div className="SubcategoryPage__text__text">
               Grab the IMStand. It screws securely into your IMStick and
               provides a stable base with a flexible arm for perfect
