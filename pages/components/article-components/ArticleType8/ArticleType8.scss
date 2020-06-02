@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins.scss';
 
 .ArticleType8 {
-  width: 1100px;
+  width: 1050px;
   @include tablet {
     width: 100%;
   }
@@ -86,13 +86,26 @@
 }
 
 .ArticleType8__number {
-  text-align: center;
   width: 20px;
   height: 20px;
-  color: #fff;
+  line-height: 20px;
   background-color: #000;
+  color: #fff;
+  align-items: center;
+  justify-content: space-around;
   border-radius: 50%;
+  flex-shrink: 0;
+  font-size: 16px;
+  text-align: center;
+  margin-right: 8px;
+  margin-top: -1px;
+  font-family: "sofia_probold";
+  span {
+    position: relative;
+    top: -1px;
+  }
   @include phone {
+    margin: 0;
     margin-bottom: 8px;
   }
 }
@@ -102,8 +115,10 @@
   line-height: 17px;
   font-family: 'sofia_probold';
   text-transform: uppercase;
-  margin-top: 40px;
+  margin-top: 24px;
   position: relative;
+  display: flex;
+  margin-left: -28px;
   img {
     position: relative;
     bottom: 2px;
@@ -121,9 +136,10 @@
 }
 
 .ArticleType8__desc {
-  margin-top: 20px;
+  margin-top: 6px;
   font-size: 16px;
   line-height: 149%;
+  color: #757575;
   @include phone {
     font-size: 10px;
     line-height: 149%;

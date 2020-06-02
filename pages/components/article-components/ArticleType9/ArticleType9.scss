@@ -1,9 +1,10 @@
 @import '../../../../styles/mixins.scss';
 
 .ArticleType9 {
-  width: 1100px;
+  width: 1050px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   @include tablet {
     width: 100%;
     flex-direction: column;
@@ -11,8 +12,7 @@
 }
 
 .ArticleType9__left {
-  margin-right: 140px;
-  width: 470px;
+  width: 460px;
   flex-shrink: 0;
   @include tablet {
     width: 100%;
@@ -45,7 +45,7 @@
 .ArticleType9__big {
   font-family: "sofia_probold";
   max-width: 210px;
-  -webkit-text-fill-color: #fff; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: rgba(255,255,255,0); /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;
   font-size: 42px;
@@ -60,16 +60,29 @@
   }
 }
 
+@keyframes moveSmall{
+  0% { transform: translateX(0px);}
+  25% { transform: translateX(3px);}
+  50% { transform: translateX(0px);}
+  75% { transform: translateX(3px);}
+  100% { transform: translateX(0px);}
+}
+
 .ArticleType9__small {
   font-size: 16px;
   line-height: 149%;
-  text-decoration-line: underline;
   color: #dd0017;
   margin-top: 30px;
+  cursor: pointer;
   img {
     position: relative;
     left: 4px;
     top: -1px;
+  }
+  &:hover {
+    img {
+      animation: moveSmall .7s;
+    }
   }
   @include phone {
     font-size: 13px;
@@ -92,14 +105,21 @@
 }
 
 .ArticleType9__right {
+  display: flex;
+  flex-direction: column;
+  @include tablet {
+    width: 100%;
+  }
 }
 
 .ArticleType9__grid {
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  grid-template-columns: 174px 174px 174px;
+  align-self: flex-end;
   @include tablet {
     grid-template-columns: 1fr 1fr;
+    width: 100%;
   }
   @include phone {
     grid-template-columns: 1fr;
@@ -122,8 +142,9 @@
   line-height: 149%;
   text-align: center;
   color: #848484;
+  margin: 0 auto;
   margin-top: 24px;
-
+  max-width: 470px;
   @include phone {
     margin-top: 12px;
     font-size: 10px;

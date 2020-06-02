@@ -28,7 +28,7 @@ const CategoryPage = () => {
     if (scrollPosition < page.current.offsetHeight) {
       setBackgroundSize(100 + scrollPosition / 40);
     }
-    if (scrollPosition >= (page.current.offsetHeight / 2)) {
+    if (scrollPosition >= page.current.offsetHeight / 2) {
       // make menu black after half scrolled page
       setThemeColor("black");
     } else {
@@ -56,6 +56,7 @@ const CategoryPage = () => {
         className="CategoryPage__carousel"
         ref={carousel}
         style={{ transform: `scale(${backgroundSize / 100})` }}
+        infinite
       >
         <div
           className="CategoryPage__bgimage"
@@ -77,7 +78,12 @@ const CategoryPage = () => {
       <div className="CategoryPage__vertical-menu">
         <VerticalMenu color={themeColor} />
       </div>
-      <Header themeColor={themeColor} onOpenMenu={() => { setIsBurgerOpened(true) }} />
+      <Header
+        themeColor={themeColor}
+        onOpenMenu={() => {
+          setIsBurgerOpened(true);
+        }}
+      />
       <div className="CategoryPage__main-frame">
         <div className="CategoryPage__middle">
           <div className="CategoryPage__content">
@@ -110,7 +116,45 @@ const CategoryPage = () => {
             </div>
           </div>
         </div>
-        <div className="CategoryPage__category-arrow-down" />
+        <div
+          className="CategoryPage__category-arrow-down"
+          onClick={() => {
+            page.current.scrollTo({
+              top: page.current.offsetHeight - 80,
+              behavior: "smooth",
+            });
+          }}
+        >
+          <svg
+            width="164"
+            height="69"
+            viewBox="0 0 164 69"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 70.1563C7.16412 30.9701 41.0821 1 82 1C122.918 1 156.836 30.9701 163 70.1563"
+              stroke="white"
+            />
+            <g className="CategoryPage__category-arrow-down--animate">
+              <path
+                d="M76 43.7631L82.3158 50.4736L88.2368 43.7631"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="82.2632"
+                y1="49.5"
+                x2="82.2632"
+                y2="22.5"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </svg>
+        </div>
       </div>
       <div className="CategoryPage__main-content">
         <div className="CategoryPage__main-content-section">
@@ -127,6 +171,9 @@ const CategoryPage = () => {
         </div>
         <div className="CategoryPage__main-content-section">
           <ArticleType5 />
+        </div>
+        <div className="CategoryPage__main-content-section">
+          <ArticleType5 inverse />
         </div>
         <div className="CategoryPage__main-content-section CategoryPage__main-content-section--no-rigth-padding">
           <ArticleType6Slider />

@@ -21,10 +21,9 @@ const SubcategoryPage = () => {
                 <span>OUTDOOR</span>
               </div>
             </div>
-            <img
-              src="/assets/subround.png"
+            <div
+              style={{ backgroundImage: `url(/assets/subround.png)` }}           
               className="SubcategoryPage__image__img"
-              alt=""
             />
           </div>
           <div className="SubcategoryPage__text">

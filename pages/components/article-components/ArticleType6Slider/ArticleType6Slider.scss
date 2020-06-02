@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins.scss';
 
 .ArticleType6Slider {
-  width: 1200px;
+  width: 1110px;
   @include tablet {
     width: 100%;
   }
@@ -47,8 +47,8 @@
 
 .ArticleType6Slider__bottom-block {
   display: flex;
-  padding-left: 140px;
-  padding-top: 20px;
+  padding-left: 110px;
+  padding-top: 24px;
   padding-right: 140px;
   @include phone {
     padding: 20px;

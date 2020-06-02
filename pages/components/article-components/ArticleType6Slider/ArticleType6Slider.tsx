@@ -2,6 +2,13 @@ import React, { useRef, useEffect, useState } from "react";
 import Carousel from "react-elastic-carousel";
 import cx from "classnames";
 
+const texts = [
+  'One Lorem ipsum dolor sit amet, consectetur adipiscin Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetur adipisci Lorem',
+  'Two Lorem ipsum dolor sit amet, consectetur adipiscin Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetur adipisci Lorem',
+  'Three Lorem ipsum dolor sit amet, consectetur adipiscin Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetur adipisci Lorem',
+  'Four Lorem ipsum dolor sit amet, consectetur adipiscin Lorem ipsum dolor sit amet, consectetu Lorem ipsum dolor sit amet, consectetur adipisci Lorem',
+]
+
 const ArticleType6Slider = () => {
   const carousel = useRef(null);
   const [slidesCount, setSlidesCount] = useState();
@@ -42,9 +49,7 @@ const ArticleType6Slider = () => {
           {currentSlide + 1} / {slidesCount}
         </div>
         <div className="ArticleType6Slider__desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscin Lorem ipsum dolor
-          sit amet, consectetu Lorem ipsum dolor sit amet, consectetur adipiscin
-          Lorem
+          {texts[currentSlide]}
         </div>
         <div className="ArticleType6Slider__circle-arrows-nav">
           <div

@@ -2,7 +2,7 @@
 
 .ArticleType1 {
   display: flex;
-  max-width: 1000px;
+  max-width: 1050px;
   align-self: flex-end;
   @include tablet {
     max-width: 100%;
@@ -60,7 +60,7 @@
   font-family: 'sofia_prosemi_bold';
   color: #000;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 24px;
   @include phone {
     font-size: 13px;
     line-height: 13px;
@@ -70,7 +70,7 @@
 
 .ArticleType1__desc {
   font-size: 16px;
-  margin-top: 14px;
+  margin-top: 6px;
   line-height: 149%;
   color: #848484;
   @include phone {

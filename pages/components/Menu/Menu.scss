@@ -4,6 +4,11 @@
   display: flex;
   &.black {
     color: black;
+    .Menu__menu-item {
+      &:after {
+        background-color: #000;
+      }
+    }
   }
 }
 
@@ -82,7 +87,7 @@
   text-transform: uppercase;
   text-align-last: left;
   color: rgba(0, 0, 0, 0.87);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   transition: all 150ms;
   &:last-child {
     margin-bottom: 0;

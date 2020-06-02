@@ -108,7 +108,11 @@ const SubMenu = ({
     <div className="SubMenu">
       {items.map((item) => (
         <div className="SubMenu__sub-item">
-          <Icon name="velo" className={cx("SubMenu__sub-item-icon", color)} color={color} />
+          <Icon
+            name="velo"
+            className={cx("SubMenu__sub-item-icon", color)}
+            color={color}
+          />
           <span className="SubMenu__sub-item-name">{item.name}</span>
         </div>
       ))}
@@ -132,13 +136,13 @@ const Item = ({
   onClick: (itemId: string) => void;
 }) => {
   return (
-    <div
-      onClick={() => {
-        onClick(item.id);
-      }}
-      className={cx("VerticalMenu__Item__item", { "is-active": isActive })}
-    >
-      <div className="VerticalMenu__Item__item-name-container">
+    <div className={cx("VerticalMenu__Item__item", { "is-active": isActive })}>
+      <div
+        className="VerticalMenu__Item__item-name-container"
+        onClick={() => {
+          onClick(item.id);
+        }}
+      >
         <svg
           width="7"
           height="9"
@@ -146,6 +150,9 @@ const Item = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="VerticalMenu__Item__arrow-right"
+          onClick={() => {
+            onClick(item.id);
+          }}
         >
           <path
             d="M4.89781 4.67416L1.56753 7.93333C1.45239 8.04602 1.45239 8.22872 1.56753 8.34141C1.68269 8.45407 1.86936 8.45407 1.98451 8.34141L5.52328 4.8782C5.6384 4.76551 5.6384 4.58281 5.52328 4.47012L1.98451 1.00691C1.86736 0.896184 1.68067 0.899364 1.56753 1.01401C1.45716 1.12586 1.45716 1.30316 1.56753 1.41499L4.89781 4.67416Z"

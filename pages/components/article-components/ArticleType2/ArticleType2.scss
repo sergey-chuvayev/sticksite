@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins.scss';
 
 .ArticleType2 {
-  width: 1140px;
+  width: 1050px;
   @include tablet {
     width: 100%;
   }
@@ -72,6 +72,14 @@
   &:last-child {
     margin-right: 0;
   }
+  cursor: pointer;
+  &:hover {
+    .ArticleType2__title {
+      img {
+        animation: move .7s;
+      }
+    }
+  }
 }
 
 .ArticleType2__image {
@@ -91,12 +99,19 @@
   }
 }
 
+@keyframes move{
+  0% { transform: translateX(0px);}
+  25% { transform: translateX(5px);}
+  50% { transform: translateX(0px);}
+  75% { transform: translateX(5px);}
+  100% { transform: translateX(0px);}
+}
+
 .ArticleType2__title {
   font-size: 27px;
   line-height: 120.5%;
   font-family: 'sofia_prosemi_bold';
   color: #000;
-  text-decoration-line: underline;
   text-transform: uppercase;
   margin-top: 20px;
   margin-left: 10px;
@@ -108,10 +123,12 @@
 }
 
 .ArticleType2__desc {
+  margin: 0 auto;
   margin-top: 20px;
   font-weight: normal;
   font-size: 16px;
   line-height: 149%;
   text-align: center;
   color: #757575;
+  max-width: 230px;
 }

@@ -13,8 +13,10 @@
   margin-right: 100px;
   width: 364px;
   flex-shrink: 0;
+  margin-left: 86px;
   @include phone {
     width: 100%;
+    margin-left: 0;
   }
 }
 

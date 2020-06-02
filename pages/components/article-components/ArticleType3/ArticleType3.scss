@@ -1,7 +1,7 @@
 @import '../../../../styles/mixins.scss';
 
 .ArticleType3 {
-  width: 970px;
+  width: 1050px;
   display: flex;
   align-items: center;
   @include tablet {
@@ -12,7 +12,7 @@
 }
 
 .ArticleType3__image {
-  width: 400px;
+  width: 480px;
   height: 400px;
   background-size: cover;
   background-repeat: no-repeat;

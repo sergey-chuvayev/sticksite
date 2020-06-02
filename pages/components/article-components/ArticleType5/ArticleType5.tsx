@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import cx from "classnames";
 
-const ArticleType5 = () => {
+const ArticleType5 = ({ inverse }: { inverse?: boolean }) => {
   const imagesGrid = useRef(null);
   const [imagesGridClass, setImagesGridClass] = useState<
     "ArticleType5__single-image" | "ArticleType5__multiple-images"
@@ -15,7 +15,7 @@ const ArticleType5 = () => {
     }
   }, []);
   return (
-    <div className="ArticleType5">
+    <div className={cx("ArticleType5", { "ArticleType5--inverse": inverse })}>
       <div className="ArticleType5__left">
         <div className="ArticleType5__title">HOW TO FIX IMStick<br/>to your DEVICE</div>
         <div className="ArticleType5__divider" />
