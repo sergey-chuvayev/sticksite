@@ -2,10 +2,9 @@ import React, { useState, useRef, useEffect } from "react";
 import cx from "classnames";
 import Carousel from "react-elastic-carousel";
 import { useMediaQuery } from "react-responsive";
-import BurgerMenu from "./BurgerMenu";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import Menu from '../Menu/Menu';
 import Sprite from "./Sprite";
-import style from "./HomePage.module.scss";
 
 const menuItems = [
   {
@@ -115,8 +114,8 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
       />
       {!isMobile && (
         <div
-          className={cx(style["wide-image"], {
-            [style["opened"]]: isMenuClicked,
+          className={cx("wide-image", {
+            "opened": isMenuClicked,
           })}
           style={{
             backgroundImage: `url(${
@@ -126,45 +125,45 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
         />
       )}
       <div
-        className={cx(style["HomePage"], {
-          [style["is-appeared"]]: isAppeared,
+        className={cx("HomePage", {
+          "is-appeared": isAppeared,
         })}
       >
-        <div className={style["mobile-header"]}>
+        <div className="mobile-header">
           <div
-            className={style["mobile-header-burger"]}
+            className="mobile-header-burger"
             onClick={() => {
               setIsBurgerOpened(true);
             }}
           >
             <img src="/mobile/burger.svg" alt="" />
           </div>
-          <div className={style["mobile-header-logo"]}>
+          <div className="mobile-header-logo">
             <img src="/mobile/logo.svg" alt="" />
           </div>
-          <div className={style["mobile-header-bag"]}>
+          <div className="mobile-header-bag">
             <img src="/mobile/bag.svg" alt="" />
           </div>
         </div>
-        <div className={style["left"]}>
-          <div className={style["logo"]}>
-            <img className={style["logo__img"]} src="/logo.svg" alt="" />
+        <div className="left">
+          <div className="logo">
+            <img className="logo__img" src="/logo.svg" alt="" />
           </div>
-          <div className={style["welcome-text"]}>
+          <div className="welcome-text">
             IM<span>STICK</span>
             <br />
             YOUR PHONE’S
             <br />
             BEST BUDDY
           </div>
-          <div className={style["sub-text"]}>
+          <div className="sub-text">
             {currentMenuItemId && (
               <>
-                <div className={style["sub-text-for"]}>FOR</div>
+                <div className="sub-text-for">FOR</div>
                 {menuItems.map((mi) => (
                   <div
-                    className={cx(style["sub-text-for-text"], {
-                      [style["active"]]: mi.id === currentMenuItemId,
+                    className={cx("sub-text-for-text", {
+                      "active": mi.id === currentMenuItemId,
                     })}
                   >
                     <div>{mi.subtext}</div>
@@ -173,37 +172,37 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               </>
             )}
           </div>
-          <div className={style["how"]}>
-            <img src="/how.svg" className={style["how-icon"]} alt="" />
-            <div className={style["how-text"]}>
-              <span className={style["how-text-red"]}>WATCH</span>
+          <div className="how">
+            <img src="/how.svg" className="how-icon" alt="" />
+            <div className="how-text">
+              <span className="how-text-red">WATCH</span>
               <br />
-              <span className={style["underlined"]}>HOW IT WORKS</span>
+              <span className="underlined">HOW IT WORKS</span>
               <br />
-              <span className={style["underlined"]}>
+              <span className="underlined">
                 Basic Tips <img src="/arrow-right.svg" />
               </span>
               <br />
             </div>
           </div>
-          <div className={style["social"]}>
+          <div className="social">
             {/* TODO: use links here */}
-            <div className={style["social-item"]}>instagram</div>
-            <div className={style["social-item"]}>youtube</div>
-            <div className={style["social-item"]}>facebook</div>
+            <div className="social-item">instagram</div>
+            <div className="social-item">youtube</div>
+            <div className="social-item">facebook</div>
           </div>
         </div>
 
-        <div className={style["middle"]}>
-          <div className={style['menu']}>
+        <div className="middle">
+          <div className='menu'>
             <Menu themeColor="white" />
           </div>
-          <div className={style["circle-menu"]}>
+          <div className="circle-menu">
             {menuItems.map((item, i) => {
               return (
                 <div
                   key={i}
-                  className={style["circle-menu-item"]}
+                  className="circle-menu-item"
                   onMouseEnter={() => {
                     setIsSpriteSmaler(true);
                     setCurrentMenuItemId(item.id);
@@ -223,7 +222,7 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
             })}
           </div>
           {!isMobile && (
-            <div className={style["stick"]}>
+            <div className="stick">
               <Sprite
                 isSmaler={isSpriteSmaler}
                 isStartPlayingSprite={isStartPlayingSprite}
@@ -231,8 +230,8 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               {menuItems.map((mi) => {
                 return (
                   <div
-                    className={cx(style["inner-image"], {
-                      [style["active"]]:
+                    className={cx("inner-image", {
+                      "active":
                         isSpriteSmaler && currentMenuItemId === mi.id,
                     })}
                     id={mi.id}
@@ -247,17 +246,17 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
         </div>
 
         {isMobile && (
-          <div className={style["mobile-slider"]}>
+          <div className="mobile-slider">
             {currentMenuPicIndex !== 0 && (
               <>
                 <div
-                  className={style["mobile-slider-cross"]}
+                  className="mobile-slider-cross"
                   onClick={() => {
                     carousel.current.goTo(0);
                     setCurrentMenuPicIndex(0);
                   }}
                 ></div>
-                <div className={style['mobile-slider-name']}>
+                <div className='mobile-slider-name'>
                   FOR <span>{menuItems[currentMenuPicIndex-1].subtext}</span> <img src="/arrow-right.svg" />
                 </div>
               </>
@@ -274,68 +273,68 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
                 setCurrentMenuPicIndex(e.index);
               }}
             >
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <Sprite isStartPlayingSprite={true} isSmaler={false} />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/auto.png)`,
                   }}
                 />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/home.png)`,
                   }}
                 />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/sport.png)`,
                   }}
                 />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/travel.png)`,
                   }}
                 />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/music.png)`,
                   }}
                 />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/blogging.png)`,
                   }}
                 />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/horeca.png)`,
                   }}
                 />
               </div>
-              <div className={style["mobile-slider-item"]}>
+              <div className="mobile-slider-item">
                 <div
-                  className={style["mobile-slider-item-pic"]}
+                  className="mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/phone.png)`,
                   }}
@@ -345,10 +344,10 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           </div>
         )}
 
-        <div className={style["right"]}>
-          <div className={style["cart"]}>Cart (0)</div>
+        <div className="right">
+          <div className="cart">Cart (0)</div>
 
-          <div className={style["shop-now"]}>
+          <div className="shop-now">
             <div>
               Shop
               <br />
@@ -357,23 +356,23 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           </div>
         </div>
 
-        <div className={style["mobile-menu"]} ref={mobileMenu}>
+        <div className="mobile-menu" ref={mobileMenu}>
           {menuItems.map((item, i) => {
             return (
               <div
                 key={i}
-                className={cx(style["mobile-menu-item"], {
-                  [style["active"]]: currentMenuPicIndex === i + 1, // +1 because of the stick
+                className={cx("mobile-menu-item", {
+                  "active": currentMenuPicIndex === i + 1, // +1 because of the stick
                 })}
                 onClick={() => {
                   setCurrentMenuPicIndex(i + 1);
                   carousel.current.goTo(i + 1);
                 }}
               >
-                <div className={style["mobile-menu-item-img"]}>
+                <div className="mobile-menu-item-img">
                   <img src={item.icon} />
                 </div>
-                <div className={style["mobile-menu-item-text"]}>
+                <div className="mobile-menu-item-text">
                   {item.subtext}
                 </div>
               </div>
@@ -381,9 +380,9 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           })}
         </div>
 
-        <div className={style["orbits"]}>
-          <div className={style["big"]} />
-          <div className={style["medium"]} />
+        <div className="orbits">
+          <div className="big" />
+          <div className="medium" />
         </div>
       </div>
     </>

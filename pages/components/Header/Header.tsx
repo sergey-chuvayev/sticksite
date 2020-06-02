@@ -4,7 +4,7 @@ import cx from 'classnames';
 import Menu from "../Menu/Menu";
 import Logo from "../Logo/Logo";
 
-const Header = ({ themeColor }) => {
+const Header = ({ themeColor, onOpenMenu }) => {
   return (
     <div
       className={cx("Header__top", { "black": themeColor === "black" })}
@@ -19,7 +19,7 @@ const Header = ({ themeColor }) => {
         <div className="Header__counter">99</div>
       </div>
       <div className="Header__mobile-logo" />
-      <div className="Header__burger" />
+      <div className="Header__burger" onClick={onOpenMenu} />
     </div>
   );
 };

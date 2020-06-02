@@ -4,6 +4,7 @@ import Carousel from "react-elastic-carousel";
 
 import Header from "../Header/Header";
 import VerticalMenu from "../VerticalMenu/VerticalMenu";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import ArticleType1 from "../article-components/ArticleType1/ArticleType1";
 import ArticleType2 from "../article-components/ArticleType2/ArticleType2";
 import ArticleType3 from "../article-components/ArticleType3/ArticleType3";
@@ -17,6 +18,7 @@ import ArticleType10 from "../article-components/ArticleType10/ArticleType10";
 import ArticleType11 from "../article-components/ArticleType11/ArticleType11";
 
 const CategoryPage = () => {
+  const [isBurgerOpened, setIsBurgerOpened] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [backgroundSize, setBackgroundSize] = useState(100);
   const [themeColor, setThemeColor] = useState<"white" | "black">("white");
@@ -42,6 +44,12 @@ const CategoryPage = () => {
         setScrollPosition(e.currentTarget.scrollTop);
       }}
     >
+      <BurgerMenu
+        opened={isBurgerOpened}
+        close={() => {
+          setIsBurgerOpened(false);
+        }}
+      />
       <Carousel
         showArrows={false}
         pagination={false}
@@ -69,7 +77,7 @@ const CategoryPage = () => {
       <div className="CategoryPage__vertical-menu">
         <VerticalMenu color={themeColor} />
       </div>
-      <Header themeColor={themeColor} />
+      <Header themeColor={themeColor} onOpenMenu={() => { setIsBurgerOpened(true) }} />
       <div className="CategoryPage__main-frame">
         <div className="CategoryPage__middle">
           <div className="CategoryPage__content">

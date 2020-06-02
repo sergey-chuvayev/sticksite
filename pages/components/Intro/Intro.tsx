@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useMediaQuery } from 'react-responsive';
 import cx from "classnames";
-import style from "./Intro.module.scss";
 
 const Intro = ({ onVideoEnded, onVideoFullyFinished }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 599px)' });
@@ -16,13 +15,13 @@ const Intro = ({ onVideoEnded, onVideoFullyFinished }) => {
   const video = useRef(null);
 
   return (
-    <div className={cx(style["Intro"], { [style["fade"]]: isFade })}>
+    <div className={cx("Intro", { "fade": isFade })}>
       <video
         muted
         autoPlay
         src="/video.mp4"
         preload={'auto'}
-        className={style["video"]}
+        className="Intro__video"
         onLoadedData={() => {
           console.log('loaded video data')
           setTimeout(() => {
