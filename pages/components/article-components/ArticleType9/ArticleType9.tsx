@@ -1,8 +1,9 @@
 import React from 'react';
+import cx from 'classnames';
 
-const ArticleType9 = () => {
+const ArticleType9 = ({ reversed }: { reversed?: boolean }) => {
   return (
-    <div className='ArticleType9'>
+    <div className={cx('ArticleType9', { "reversed": reversed })}>
       <div className='ArticleType9__left'>
         <div className='ArticleType9__top'>
           <div className='ArticleType9__img' style={{ backgroundImage: 'url(/assets/1.png)' }} />

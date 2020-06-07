@@ -98,6 +98,9 @@
   // mix-blend-mode: difference;
   top: 15%;  width: max-content;
   z-index: 3;
+  @media (max-width: 1300px) {
+    display: none;
+  }
   @include tablet {
     display: none;
   }

@@ -93,8 +93,8 @@
 
 .ArticleType2__number {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 8px;
+  left: 20px;
   @include tablet {
     left: 40px;
   }

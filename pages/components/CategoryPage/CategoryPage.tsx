@@ -191,6 +191,12 @@ const CategoryPage = () => {
           <ArticleType10 />
         </div>
         <div className="CategoryPage__main-content-section">
+          <ArticleType10 reversed />
+        </div>
+        <div className="CategoryPage__main-content-section">
+          <ArticleType9 reversed />
+        </div>
+        <div className="CategoryPage__main-content-section">
           <ArticleType11 />
         </div>
       </div>

@@ -9,6 +9,15 @@
     flex-direction: column-reverse;
     align-items: start;
   }
+  &.reverse {
+    flex-direction: row-reverse;
+    .ArticleType10__left {
+      margin-right: 0;
+    }
+    .ArticleType10__right {
+      margin-right: 140px;
+    }
+  }
 }
 
 .ArticleType10__left {

@@ -11,6 +11,9 @@
   left: 40px;
   // mix-blend-mode: difference;
   top: 30%;  width: max-content;
+  @media (max-width: 1300px) {
+    display: none;
+  }
   z-index: 3;
   @include tablet {
     display: none;
@@ -183,6 +186,7 @@
   @include tablet {
     padding: 20px;
     padding-top: 80px;
+    width: 100%;
   }
   @include phone {
     padding: 0;

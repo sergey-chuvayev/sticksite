@@ -3,6 +3,7 @@
 .ArticleType7 {
   width: 1050px;
   display: flex;
+  justify-content: space-between;
   @include tablet {
     width: 100%;
     flex-direction: column;
@@ -18,6 +19,10 @@
     width: 100%;
     margin-left: 0;
   }
+}
+
+.ArticleType7__right {
+  max-width: 470px;
 }
 
 .ArticleType7__desc {
