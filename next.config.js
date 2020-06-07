@@ -4,4 +4,5 @@ module.exports = {
   devIndicators: {
     autoPrerender: true,
   },
+  target: 'serverless',
 }

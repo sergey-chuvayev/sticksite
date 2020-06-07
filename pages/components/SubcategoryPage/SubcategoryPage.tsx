@@ -15,16 +15,17 @@ const SubcategoryPage = () => {
         <div className="SubcategoryPage__content-grid">
           <div /> {/* grid span */}
           <div className="SubcategoryPage__image">
-            <div className="SubcategoryPage__image__text">
-              <div className="SubcategoryPage__image__text__catname">
-                <span>01</span>
-                <span>OUTDOOR</span>
+            <div
+              style={{ backgroundImage: `url(/assets/subround.png)` }}
+              className="SubcategoryPage__image__img"
+            >
+              <div className="SubcategoryPage__image__text">
+                <div className="SubcategoryPage__image__text__catname">
+                  <span>01</span>
+                  <span>OUTDOOR</span>
+                </div>
               </div>
             </div>
-            <div
-              style={{ backgroundImage: `url(/assets/subround.png)` }}           
-              className="SubcategoryPage__image__img"
-            />
           </div>
           <div className="SubcategoryPage__text">
             <div className="SubcategoryPage__text__top">
@@ -51,7 +52,33 @@ const SubcategoryPage = () => {
             />
           </div>
         </div>
-        <div className="SubcategoryPage__category-arrow-down" />
+        <div className="SubcategoryPage__category-arrow-down">
+          <svg
+            width="164"
+            height="69"
+            viewBox="0 0 164 69"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g className="CategoryPage__category-arrow-down--animate">
+              <path
+                d="M76 43.7631L82.3158 50.4736L88.2368 43.7631"
+                stroke="black"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="82.2632"
+                y1="49.5"
+                x2="82.2632"
+                y2="22.5"
+                stroke="black"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </svg>
+        </div>
       </div>
       <div className="SubcategoryPage__main-content">{/* content here */}</div>
     </div>

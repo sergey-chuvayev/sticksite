@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive'
 import HomePage from "./components/HomePage/HomePage.tsx";
-import CategoryPage from "./components/CategoryPage/CategoryPage.tsx";
 import Intro from "./components/Intro/Intro.tsx";
 
 const WITH_INTRO = false;

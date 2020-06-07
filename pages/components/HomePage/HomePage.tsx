@@ -91,19 +91,6 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
   }, 500); // init after video started playing
   if (!isVisible) return null;
 
-  const settings = {
-    className: "center",
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 5,
-    swipeToSlide: true,
-    afterChange: function (index) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-      );
-    },
-  };
-
   return (
     <>
       <BurgerMenu
@@ -114,7 +101,7 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
       />
       {!isMobile && (
         <div
-          className={cx("wide-image", {
+          className={cx("HomePage__wide-image", {
             "opened": isMenuClicked,
           })}
           style={{
@@ -129,41 +116,41 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           "is-appeared": isAppeared,
         })}
       >
-        <div className="mobile-header">
+        <div className="HomePage__mobile-header">
           <div
-            className="mobile-header-burger"
+            className="HomePage__mobile-header-burger"
             onClick={() => {
               setIsBurgerOpened(true);
             }}
           >
             <img src="/mobile/burger.svg" alt="" />
           </div>
-          <div className="mobile-header-logo">
+          <div className="HomePage__mobile-header-logo">
             <img src="/mobile/logo.svg" alt="" />
           </div>
-          <div className="mobile-header-bag">
+          <div className="HomePage__mobile-header-bag">
             <img src="/mobile/bag.svg" alt="" />
           </div>
         </div>
-        <div className="left">
-          <div className="logo">
-            <img className="logo__img" src="/logo.svg" alt="" />
+        <div className="HomePage__left">
+          <div className="HomePage__logo">
+            <img className="HomePage__logo__img" src="/logo.svg" alt="" />
           </div>
-          <div className="welcome-text">
+          <div className="HomePage__welcome-text">
             IM<span>STICK</span>
             <br />
             YOUR PHONE’S
             <br />
             BEST BUDDY
           </div>
-          <div className="sub-text">
+          <div className="HomePage__sub-text">
             {currentMenuItemId && (
               <>
-                <div className="sub-text-for">FOR</div>
+                <div className="HomePage__sub-text-for">FOR</div>
                 {menuItems.map((mi) => (
                   <div
-                    className={cx("sub-text-for-text", {
-                      "active": mi.id === currentMenuItemId,
+                    className={cx("HomePage__sub-text-for-text", {
+                      "HomePage__active": mi.id === currentMenuItemId,
                     })}
                   >
                     <div>{mi.subtext}</div>
@@ -172,37 +159,37 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               </>
             )}
           </div>
-          <div className="how">
-            <img src="/how.svg" className="how-icon" alt="" />
-            <div className="how-text">
-              <span className="how-text-red">WATCH</span>
+          <div className="HomePage__how">
+            <img src="/how.svg" className="HomePage__how-icon" alt="" />
+            <div className="HomePage__how-text">
+              <span className="HomePage__how-text-red">WATCH</span>
               <br />
-              <span className="underlined">HOW IT WORKS</span>
+              <span className="HomePage__underlined">HOW IT WORKS</span>
               <br />
-              <span className="underlined">
+              <span className="HomePage__underlined">
                 Basic Tips <img src="/arrow-right.svg" />
               </span>
               <br />
             </div>
           </div>
-          <div className="social">
+          <div className="HomePage__social">
             {/* TODO: use links here */}
-            <div className="social-item">instagram</div>
-            <div className="social-item">youtube</div>
-            <div className="social-item">facebook</div>
+            <div className="HomePage__social-item">instagram</div>
+            <div className="HomePage__social-item">youtube</div>
+            <div className="HomePage__social-item">facebook</div>
           </div>
         </div>
 
-        <div className="middle">
-          <div className='menu'>
+        <div className="HomePage__middle">
+          <div className='HomePage__menu'>
             <Menu themeColor="white" />
           </div>
-          <div className="circle-menu">
+          <div className="HomePage__circle-menu">
             {menuItems.map((item, i) => {
               return (
-                <div
+                <a
                   key={i}
-                  className="circle-menu-item"
+                  className="HomePage__circle-menu-item"
                   onMouseEnter={() => {
                     setIsSpriteSmaler(true);
                     setCurrentMenuItemId(item.id);
@@ -211,18 +198,19 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
                     setIsSpriteSmaler(false);
                   }}
                   onClick={() => {
-                    setIsMenuClicked(true);
+                    // just goto an internal link
+                    // setIsMenuClicked(true);
                     // maybe extract to handler
                     // add change page after transition
                   }}
                 >
                   <img src={item.icon} />
-                </div>
+                </a>
               );
             })}
           </div>
           {!isMobile && (
-            <div className="stick">
+            <div className="HomePage__stick">
               <Sprite
                 isSmaler={isSpriteSmaler}
                 isStartPlayingSprite={isStartPlayingSprite}
@@ -230,7 +218,7 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
               {menuItems.map((mi) => {
                 return (
                   <div
-                    className={cx("inner-image", {
+                    className={cx("HomePage__inner-image", {
                       "active":
                         isSpriteSmaler && currentMenuItemId === mi.id,
                     })}
@@ -246,17 +234,17 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
         </div>
 
         {isMobile && (
-          <div className="mobile-slider">
+          <div className="HomePage__mobile-slider">
             {currentMenuPicIndex !== 0 && (
               <>
                 <div
-                  className="mobile-slider-cross"
+                  className="HomePage__mobile-slider-cross"
                   onClick={() => {
                     carousel.current.goTo(0);
                     setCurrentMenuPicIndex(0);
                   }}
                 ></div>
-                <div className='mobile-slider-name'>
+                <div className='HomePage__mobile-slider-name'>
                   FOR <span>{menuItems[currentMenuPicIndex-1].subtext}</span> <img src="/arrow-right.svg" />
                 </div>
               </>
@@ -273,68 +261,68 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
                 setCurrentMenuPicIndex(e.index);
               }}
             >
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <Sprite isStartPlayingSprite={true} isSmaler={false} />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/auto.png)`,
                   }}
                 />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/home.png)`,
                   }}
                 />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/sport.png)`,
                   }}
                 />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/travel.png)`,
                   }}
                 />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/music.png)`,
                   }}
                 />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/blogging.png)`,
                   }}
                 />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/horeca.png)`,
                   }}
                 />
               </div>
-              <div className="mobile-slider-item">
+              <div className="HomePage__mobile-slider-item">
                 <div
-                  className="mobile-slider-item-pic"
+                  className="HomePage__mobile-slider-item-pic"
                   style={{
                     backgroundImage: `url(/menu/phone.png)`,
                   }}
@@ -344,10 +332,10 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           </div>
         )}
 
-        <div className="right">
-          <div className="cart">Cart (0)</div>
+        <div className="HomePage__right">
+          <div className="HomePage__cart">99</div>
 
-          <div className="shop-now">
+          <div className="HomePage__shop-now">
             <div>
               Shop
               <br />
@@ -356,12 +344,12 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           </div>
         </div>
 
-        <div className="mobile-menu" ref={mobileMenu}>
+        <div className="HomePage__mobile-menu" ref={mobileMenu}>
           {menuItems.map((item, i) => {
             return (
               <div
                 key={i}
-                className={cx("mobile-menu-item", {
+                className={cx("HomePage__mobile-menu-item", {
                   "active": currentMenuPicIndex === i + 1, // +1 because of the stick
                 })}
                 onClick={() => {
@@ -369,10 +357,10 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
                   carousel.current.goTo(i + 1);
                 }}
               >
-                <div className="mobile-menu-item-img">
+                <div className="HomePage__mobile-menu-item-img">
                   <img src={item.icon} />
                 </div>
-                <div className="mobile-menu-item-text">
+                <div className="HomePage__mobile-menu-item-text">
                   {item.subtext}
                 </div>
               </div>
@@ -380,9 +368,9 @@ const HomePage = ({ isAppeared, isStartPlayingSprite }) => {
           })}
         </div>
 
-        <div className="orbits">
-          <div className="big" />
-          <div className="medium" />
+        <div className="HomePage__orbits">
+          <div className="HomePage__big" />
+          <div className="HomePage__medium" />
         </div>
       </div>
     </>

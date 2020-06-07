@@ -70,7 +70,7 @@
   }
 
 
-  .mobile-header {
+  .HomePage__mobile-header {
     display: none;
     @include tablet {
       z-index: 4;
@@ -78,7 +78,7 @@
       flex-direction: row-reverse;
       justify-content: flex-end;
       align-items: center;
-      .mobile-header-burger {
+      .HomePage__mobile-header-burger {
         margin-left: 28px;
         img {
           width: 32px;
@@ -91,14 +91,14 @@
       justify-content: space-between;
       align-items: center;
       flex-direction: initial;
-      .mobile-header-burger {
+      .HomePage__mobile-header-burger {
         margin-left: 0;
         img {
           width: 20px;
         }
       }
     }
-    .mobile-header-logo {
+    .HomePage__mobile-header-logo {
       @include tablet {
         display: none;
       }
@@ -107,7 +107,7 @@
         margin-left: auto;
       }
     }
-    .mobile-header-bag {
+    .HomePage__mobile-header-bag {
       @include tablet {
         margin-left: auto;
         img {
@@ -122,7 +122,7 @@
     }
   }
 
-  .mobile-menu {
+  .HomePage__mobile-menu {
     display: none;
     z-index: 2;
     position: absolute;
@@ -135,13 +135,13 @@
     @include phone {
       display: flex;
     }
-    .mobile-menu-item {
+    .HomePage__mobile-menu-item {
       width: 85px;
       border-radius: 50%;
       margin-right: 8px;
       flex-shrink: 0;
-      &.active {
-        .mobile-menu-item-text {
+      &.HomePage__active {
+        .HomePage__mobile-menu-item-text {
           span {
             position: relative;
             &:after {
@@ -157,11 +157,11 @@
         }    
       }
     }
-    .mobile-menu-item-img {
+    .HomePage__mobile-menu-item-img {
       background-color: rgba(0,0,0,.1);
       border-radius: 50%;
     }
-    .mobile-menu-item-text {
+    .HomePage__mobile-menu-item-text {
       font-family: 'sofia_proregular';
       font-size: 12px;
       text-transform: uppercase;
@@ -170,14 +170,14 @@
   }
 
 
-  .orbits {
+  .HomePage__orbits {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -1;
     left: 1px;
     top: 0px;
-    .big {
+    .HomePage__big {
       position: absolute;
       width: 1279px;
       height: 1279px;
@@ -202,7 +202,7 @@
       }
     }
 
-    .medium {
+    .HomePage__medium {
       position: absolute;
       width: 897px;
       height: 897px;
@@ -227,13 +227,13 @@
     }
   }
 
-  .how {
+  .HomePage__how {
     display: flex;
     margin-top: auto;
     align-items: center;
     cursor: pointer;
     z-index: 4;
-    .how-icon {
+    .HomePage__how-icon {
       width: 93px;
     }
     @include phone {
@@ -249,17 +249,17 @@
     }
   }
 
-  .how-text {
+  .HomePage__how-text {
     letter-spacing: -0.05em;
     margin-left: 20px;
     &:hover {
-      .underlined {
+      .HomePage__underlined {
         &::after {
           width: 100%;
         }
       }
     }
-    .underlined {
+    .HomePage__underlined {
       position: relative;
       &:after {
         transition: ease all 150ms;
@@ -274,15 +274,15 @@
     }
   }
 
-  .how-text-red {
+  .HomePage__how-text-red {
     color:#F80302;
   }
 
-  .how-text-underlined {
+  .HomePage__how-text-underlined {
     text-decoration: underline;
   }
 
-  .left {
+  .HomePage__left {
     width: 314px;
     display: flex;
     flex-direction: column;
@@ -304,7 +304,7 @@
     }
   }
 
-  .logo {
+  .HomePage__logo {
     margin-left: -10px;
     margin-top: -7px;
     @include tablet {
@@ -318,11 +318,11 @@
     }
   }
 
-  .logo__img {
+  .HomePage__logo__img {
     width: 167px;
   }
 
-  .welcome-text {
+  .HomePage__welcome-text {
     font-family: 'sofia_prosemi_bold';
     font-size: 53px;
     line-height: 51px;  
@@ -354,7 +354,7 @@
     }
   }
 
-  .sub-text {
+  .HomePage__sub-text {
     @include big-desktop {
       padding-left: 50px;
       font-size: 50px;
@@ -399,11 +399,11 @@
     }
   }
 
-  .sub-text-for {
+  .HomePage__sub-text-for {
     margin-right: 18px;
   }
 
-  .sub-text-for-text {
+  .HomePage__sub-text-for-text {
     opacity: 0;
     transition: opacity ease 400ms;
     position: relative;
@@ -422,7 +422,7 @@
         min-width: 250px;
       }
     }
-    &.active {
+    &.HomePage__active {
       opacity: 1;
       z-index: 1;
       span {
@@ -433,7 +433,7 @@
     }
   }
 
-  .social {
+  .HomePage__social {
     @include big-desktop {
       margin-left: 50px;
       margin-bottom: 23px;
@@ -457,7 +457,7 @@
     }
   }
 
-  .social-item {
+  .HomePage__social-item {
     opacity: .5;
     color: #fff;
     transition: ease all 150ms;
@@ -468,7 +468,7 @@
   }
 
 
-  .middle {
+  .HomePage__middle {
     flex-grow: 1;
     display: flex;
     justify-content: space-around;
@@ -489,7 +489,7 @@
     }
   }
 
-  .menu {
+  .HomePage__menu {
     position: absolute;
     top: 0;
     z-index: 3;
@@ -498,17 +498,21 @@
     }
   }
 
-  .cart {
+  .HomePage__cart {
+    background-image: url(/mobile/bag.svg);
+    width: 20px;
+    height: 27px;
+    background-size: contain;
     align-self: flex-end;
-    text-transform: uppercase;
-    font-size: 17px;
-    font-family: "sofia_prosemi_bold";
+    font-size: 10px;
+    padding-top: 10px;
+    text-align: center;
     @include tablet {
       display: none;
     }
   }
 
-  .circle-menu {
+  .HomePage__circle-menu {
     @include on-circle($item-count: 8, $circle-size: 515px, $item-size: 126px); 
     animation: spin 100s linear infinite;
     border: solid 1px #373737;
@@ -519,9 +523,17 @@
     @include phone {
       display: none;
     }
+    &:hover {
+      animation-play-state: paused;
+      .HomePage__circle-menu-item {
+        img {
+          animation-play-state: paused;
+        }
+      }
+    }
   }
 
-  .circle-menu-item {
+  .HomePage__circle-menu-item {
     img {
       animation: spin 100s linear infinite reverse;
     }
@@ -544,7 +556,7 @@
     border-radius: 50%;
   }
 
-  .stick {
+  .HomePage__stick {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -554,7 +566,7 @@
     }
   }
 
-  .wide-image {
+  .HomePage__wide-image {
     width: 340px;
     height: 340px;
     position: absolute;
@@ -567,7 +579,7 @@
     background-position: center;
     background-size: cover;
     opacity: 0;
-    &.opened {
+    &.HomePage__opened {
       opacity: 1;
       border-radius: 0;
       width: 100%;
@@ -575,7 +587,7 @@
     }
   }
 
-  .inner-image {
+  .HomePage__inner-image {
     position: absolute;
     width: 340px;
     height: 340px;
@@ -592,11 +604,11 @@
 
     top: calc(50% - 170px);
     left: calc(50% - 170px);
-    &.active {
+    &.HomePage__active {
       opacity: 1;
       transform: scale(1);
     }
-    &.newpage {
+    &.HomePage__newpage {
       opacity: 1;
       transform: scale(5);
       z-index: 10;
@@ -604,7 +616,7 @@
     }
   }
 
-  .right {
+  .HomePage__right {
     width: 314px;
     flex-shrink: 0;
     display: flex;
@@ -625,7 +637,7 @@
     }
   }
 
-  .shop-now {
+  .HomePage__shop-now {
     width: 108px;
     height: 108px;
     text-transform: uppercase;
@@ -704,7 +716,7 @@
     }
   }
 
-  .mobile-slider {
+  .HomePage__mobile-slider {
     position: absolute;
     height: 290px;
     width: 100%;
@@ -713,7 +725,7 @@
     transform: translate(0, -50%);
   }
 
-  .mobile-slider-item {
+  .HomePage__mobile-slider-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -723,7 +735,7 @@
     font-size: 4em;
   }
 
-  .mobile-slider-item-pic {
+  .HomePage__mobile-slider-item-pic {
     width: 290px;
     height: 290px;
     border-radius: 50%;
@@ -731,7 +743,7 @@
     background-size: cover;
   }
 
-  .mobile-slider-cross {
+  .HomePage__mobile-slider-cross {
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -750,7 +762,7 @@
     }
   }
 
-  .mobile-slider-name {
+  .HomePage__mobile-slider-name {
     font-size: 22px;
     position: absolute;
     bottom: 10px;

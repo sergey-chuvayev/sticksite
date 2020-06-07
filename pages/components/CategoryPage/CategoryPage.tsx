@@ -28,7 +28,7 @@ const CategoryPage = () => {
     if (scrollPosition < page.current.offsetHeight) {
       setBackgroundSize(100 + scrollPosition / 40);
     }
-    if (scrollPosition >= page.current.offsetHeight / 2) {
+    if (scrollPosition >= page.current.offsetHeight / 3) {
       // make menu black after half scrolled page
       setThemeColor("black");
     } else {

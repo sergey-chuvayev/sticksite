@@ -36,19 +36,17 @@
 }
 
 .SubcategoryPage__category-arrow-down {
-  background-image: url('/category-arrow-down-no-border.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
   width: 162px;
   height: 70px;
   position: absolute;
-  bottom: 25px;
+  bottom: 30px;
   left: 50%;
   transform: translate(-50%, 0);
-  mix-blend-mode: difference;
+  transition: all 150ms;
   @include tablet {
     display: none;
   }
+  // animation: moveArrowMain 3s infinite forwards;
 }
 
 .SubcategoryPage__main-content {
@@ -87,11 +85,17 @@
 .SubcategoryPage__image__text {
   position: absolute;
   width: 100%;
-  top: -20px;
+  top: 20px;
   left: 0;
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  @media (min-width: 1679px) {
+    top: 50px;
+  }
+  @include big-desktop {
+    top: 40px;
+  }
+  
   @include tablet {
     position: relative;
     z-index: 1;
@@ -104,10 +108,9 @@
 .SubcategoryPage__image__img {
   height: 100%;
   width: 100%;
-  margin-top: 20px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: 0px 40px;
+  background-position: 50% 50%;
   @include tablet {
     width: 100%;
     margin: 0 -30px;
@@ -138,8 +141,8 @@
       line-height: 110.5%;
       letter-spacing: -0.025em;
       position: absolute;
-      top: 60px;
-      left: -2px;
+      top: 50px;
+      left: -17px;
       @include phone {
         left: -8px;
         top: 60px;
@@ -148,12 +151,23 @@
     }
     &:last-child {
       font-family: "sofia_probold";
-      font-size: 144px;
+      font-size: 124px;
       text-align: center;
       letter-spacing: -0.025em;
       -webkit-text-fill-color: rgba(#fff, 0); /* Will override color (regardless of order) */
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: #000;
+
+      
+      @media (min-width: 1679px) {
+        font-size: 144px;
+      }
+      @include big-desktop {
+        font-size: 164px;
+      }
+
+      // 124px
+
       @include phone {
         font-size: 50px;
         line-height: initial;
@@ -164,6 +178,7 @@
 
 .SubcategoryPage__text {
   width: 226px;
+  padding-top: 60px;
   margin: 0 auto;
   @include tablet {
     padding: 20px;
