@@ -6,6 +6,13 @@
   justify-content: space-between;
   @include tablet {
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 33px;
+  }
+  @include phone {
+    display: flex;
+    width: 100%;
     flex-direction: column;
   }
 }
@@ -15,7 +22,15 @@
   width: 364px;
   flex-shrink: 0;
   margin-left: 86px;
+  @include tablet {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    padding-top: 3px;
+    padding-left: 60px;
+  }
   @include phone {
+    padding-left: 0;
     width: 100%;
     margin-left: 0;
   }
@@ -28,6 +43,10 @@
 .ArticleType7__desc {
   font-size: 20px;
   line-height: 149%;
+  @include tablet {
+    font-size: 16px;
+    margin-right: 40px;
+  }
   @include phone {
     font-size: 14px;
     line-height: 149%;
@@ -37,7 +56,8 @@
 .ArticleType7__title {
   display: flex;
   @include tablet {
-    flex-direction: column-reverse;
+    font-size: 19px;
+    width: 300px;
   }
   @include phone {
     font-size: 19px;
@@ -52,8 +72,7 @@
     margin-right: 16px;
     flex-shrink: 0;
     @include tablet {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 12px;
     }
   }
   font-family: 'sofia_prosemi_bold';

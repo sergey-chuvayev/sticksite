@@ -7,6 +7,13 @@
   justify-content: space-between;
   @include tablet {
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 33px;
+  }
+  @include phone {
+    display: flex;
+    width: 100%;
     flex-direction: column;
   }
   &.reversed {
@@ -58,6 +65,7 @@
   text-transform: uppercase;
   @include tablet {
     max-width: 100%;
+    font-size: 27px;
   }
   @include phone {
     font-size: 27px;
@@ -90,6 +98,9 @@
       animation: moveSmall .7s;
     }
   }
+  @include tablet {
+    font-size: 13px;
+  }
   @include phone {
     font-size: 13px;
     line-height: 149%;
@@ -103,6 +114,7 @@
   line-height: 149%;
   @include tablet {
     margin-top: 30px;
+    font-size: 16px;
   }
   @include phone {
     font-size: 13px;
@@ -124,6 +136,7 @@
   grid-template-columns: 174px 174px 174px;
   align-self: flex-end;
   @include tablet {
+    grid-gap: 12px;
     grid-template-columns: 1fr 1fr;
     width: 100%;
   }
@@ -140,6 +153,7 @@
   background-position: center;
   @include tablet {
     width: 100%;
+    height: 166px;
   }
 }
 

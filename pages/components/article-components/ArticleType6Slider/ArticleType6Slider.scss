@@ -60,6 +60,9 @@
   line-height: 149%;
   color: #848484;
   max-width: 580px;
+  @include tablet {
+    text-align: center;
+  }
   @include phone {
     max-width: 100%;
     font-size: 10px;
