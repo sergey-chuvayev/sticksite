@@ -14,14 +14,29 @@
   }
   &.reverse {
     flex-direction: row-reverse;
+    @include phone {
+      flex-direction: column-reverse;
+    }
     .ArticleType10__left {
       margin-right: 33px;
+      @include phone {
+        font-size: 14px;
+        line-height: 149%;
+        width: 100%;
+        margin-top: 20px;
+      }
     }
     .ArticleType10__right {
       margin-right: 140px;
       @include tablet {
         margin-right: 33px;
         margin-left: 43px;
+      }
+      @include phone {
+        width: 100%;
+        height: 170px;
+        padding-left: 120px;
+        margin-left: 0;
       }
     }
   }
@@ -42,7 +57,7 @@
     font-size: 14px;
     line-height: 149%;
     width: 100%;
-    padding-left: 120px;
+    margin-top: 20px;
   }
 }
 
@@ -76,7 +91,7 @@
   font-size: 27px;
   line-height: 120.5%;
   text-transform: uppercase;
-  width: 240px;
+  width: 290px;
   @include tablet {
     font-size: 19px;
     width: 180px;

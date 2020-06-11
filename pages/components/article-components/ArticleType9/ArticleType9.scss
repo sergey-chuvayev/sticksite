@@ -18,6 +18,9 @@
   }
   &.reversed {
     flex-direction: row-reverse;
+    @include phone {
+      flex-direction: column;
+    }
   }
 }
 
@@ -141,7 +144,6 @@
     width: 100%;
   }
   @include phone {
-    grid-template-columns: 1fr;
     grid-gap: 10px;
   }
 }

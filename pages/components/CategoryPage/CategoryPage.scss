@@ -65,11 +65,18 @@
       padding: 0;
       padding-bottom: 80px;
     }
+    @include phone {
+      padding: 0;
+      padding-bottom: 20px;
+    }
   }
   @include tablet {
     display: block;
     padding: 20px;
     padding-bottom: 80px;
+  }
+  @include phone {
+    padding-bottom: 40px;
   }
 }
 

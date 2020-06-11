@@ -98,6 +98,11 @@
   @include tablet {
     left: 40px;
   }
+  @include phone {
+    font-size: 14px;
+    left: 23px;
+    top: 12px;
+  }
 }
 
 @keyframes move{

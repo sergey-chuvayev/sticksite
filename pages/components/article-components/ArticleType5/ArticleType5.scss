@@ -83,7 +83,6 @@
   }
   @include phone {
     width: 100%;
-    flex-direction: column;
   }
 }
 
@@ -122,9 +121,8 @@
   font-size: 16px;
   line-height: 149%;
   @include phone {
-    font-size: 10px;
+    font-size: 16px;
     line-height: 149%;
-    margin-top: 8px;
   }
 }
 

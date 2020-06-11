@@ -11,7 +11,7 @@
     grid-gap: 20px;
   }
   @include phone {
-    display: block;
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
@@ -31,9 +31,10 @@
     }
   }
   @include phone {
-    margin-bottom: 36px;
     &:last-child {
       margin-bottom: 0;
+      grid-column-start: 1;
+      grid-column-end: 3;
     }
   }
 }
@@ -45,6 +46,9 @@
   width: 100%;
   @include tablet {
     height: 300px;
+  }
+  @include phone {
+    height: 200px;
   }
 }
 
