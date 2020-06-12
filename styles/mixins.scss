@@ -15,6 +15,9 @@
   @media (max-width: 1024px) and (orientation: landscape) { @content; }
 }
 
+@mixin almost-big-desktop {
+  @media (min-width: 1440px) { @content; }
+}
 
 @mixin big-desktop {
   @media (min-width: 1800px) { @content; }

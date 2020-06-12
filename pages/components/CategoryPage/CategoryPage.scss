@@ -59,6 +59,10 @@
   padding-top: 50px;
   padding-bottom: 70px;
   overflow: hidden;
+  @include almost-big-desktop {
+    justify-content: center;
+    padding-left: 60px; // right padding compensation
+  }
   &.CategoryPage__main-content-section--no-rigth-padding {
     padding-right: 0;
     @include tablet {
